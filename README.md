@@ -1,19 +1,20 @@
 # Next.js template
 
+
 ### Highlights
 
-    -  Global state management using redux
+- Global state management using redux
     
-    -  Side Effects using redux saga
+- Side Effects using redux saga
     
-    -  API calls using `api-sauce`
+- API calls using `api-sauce`
     
-    -  Styling using styled components
+- Styling using styled components
     
-    -  Reusing components from ant design
+- Reusing components from ant design
     
-    -  Translations using `react-intl`
+- Translations using `react-intl`
     
-    -  Custom enviornments for more flexibilty using `emv-cmd`
+- Custom enviornments for more flexibilty using `emv-cmd`
     
-    -  IE 11 compatible
+- IE 11 compatible
