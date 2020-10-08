@@ -3,15 +3,15 @@
 
 ### Highlights
 
-- Global state management using redux
+- Global state management using `redux`
     
-- Side Effects using redux saga
+- Side Effects using `redux-saga`
     
 - API calls using `api-sauce`
     
 - Styling using styled components
     
-- Reusing components from ant design
+- Reusing components from Ant design
     
 - Translations using `react-intl`
     
