@@ -1,0 +1,10 @@
+build
+out
+node_modules
+stats.json
+.next
+
+.DS_Store
+npm-debug.log
+.idea
+coverage
