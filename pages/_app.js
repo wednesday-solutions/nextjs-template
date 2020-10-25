@@ -2,9 +2,9 @@ import { IntlProvider } from 'react-intl';
 import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import colors from '@themes/colors';
-import GlobalStyle from '../global-styles';
-import { translationMessages, DEFAULT_LOCALE } from '../i18n';
-import { wrapper } from '../configureStore';
+import GlobalStyle from '@app/global-styles';
+import { translationMessages, DEFAULT_LOCALE } from '@app/i18n';
+import { wrapper } from '@app/configureStore';
 import 'antd/dist/antd.css';
 
 const theme = {

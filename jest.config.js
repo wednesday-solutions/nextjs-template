@@ -1,7 +1,8 @@
 module.exports = {
   collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
+    'app/**/*.{js,jsx,ts,tsx}',
+    'app/tests/**',
+    '!app/**/*.d.ts',
     '!**/node_modules/**',
     '!**/build/**',
     '!**/out/**',
@@ -9,15 +10,16 @@ module.exports = {
     '!config/**',
     '!pages/**',
     '!server/**',
-    '!global-styles.js',
+    '!app/global-styles.js',
     '!*.config.js',
     '!**/apiUtils.js',
     '!**/testUtils.js',
     '!**/themes/index.js',
-    '!utils/constants.js',
-    '!utils/fb.js',
-    '!services/**',
+    '!**/utils/constants.js',
+    '!**/services/**',
     '!**/configureStore.js',
+    '!**/i18n.js',
+    '!**/reducers.js',
     '!**/polyfills.js'
   ],
   coverageThreshold: {
@@ -36,7 +38,8 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
   moduleNameMapper: {
-    '@(components|utils|themes|services|store)(.*)$': '<rootDir>/$1/$2',
+    '@app(.*)$': '<rootDir>/app/$1',
+    '@(components|utils|themes|services|store)(.*)$': '<rootDir>/app/$1/$2',
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '.*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|ico)$':
       '<rootDir>/config/jest/image.js'

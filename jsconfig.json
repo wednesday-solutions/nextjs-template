@@ -4,13 +4,13 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["./*"],
-      "@components/*": ["./components/*"],
-      "@themes/*": ["./themes/*"],
-      "@utils/*": ["./utils/*"],
-      "@images/*": ["./images/*"],
-      "@store/*": ["./store/*"],
-      "@services/*": ["./services/*"]
+      "@app/*": ["./app/*"],
+      "@components/*": ["./app/components/*"],
+      "@themes/*": ["./app/themes/*"],
+      "@utils/*": ["./app/utils/*"],
+      "@images/*": ["./app/images/*"],
+      "@store/*": ["./app/store/*"],
+      "@services/*": ["./app/services/*"]
     }
   },
   "exclude": ["node_modules", "dist", "build", "out", ".next"]

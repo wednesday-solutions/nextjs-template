@@ -11,12 +11,13 @@ const withTM = require('next-transpile-modules')([
 
 const constructAlias = (config) => {
   return {
-    '@components': path.resolve(__dirname, './components'),
-    '@themes': path.resolve(__dirname, './themes'),
-    '@utils': path.resolve(__dirname, './utils'),
-    '@images': path.resolve(__dirname, './images'),
-    '@store': path.resolve(__dirname, './store'),
-    '@services': path.resolve(__dirname, './services'),
+    '@app': path.resolve(__dirname, './app'),
+    '@components': path.resolve(__dirname, './app/components'),
+    '@themes': path.resolve(__dirname, './app/themes'),
+    '@utils': path.resolve(__dirname, './app/utils'),
+    '@images': path.resolve(__dirname, './app/images'),
+    '@store': path.resolve(__dirname, './app/store'),
+    '@services': path.resolve(__dirname, './app/services'),
     ...config.resolve.alias
   };
 };
