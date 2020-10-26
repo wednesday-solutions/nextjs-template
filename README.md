@@ -20,3 +20,25 @@
 - Image loading using `next-images`
     
 - IE 11 compatible
+
+
+### Start server
+----------------
+
+- **Development:** `yarn start:dev`
+
+- **Production:**  `yarn start:prod`
+
+
+### Build project 
+-----------------
+
+- **Development:** `yarn build:dev`
+
+- **Production:**  `yarn build:prod`
+
+
+
+
+
+
