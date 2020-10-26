@@ -2,7 +2,7 @@
 
 
 ### Highlights
-
+------------------
 - Global state management using `redux`
     
 - Side Effects using `redux-saga`
@@ -23,14 +23,14 @@
 
 
 ### Start server
-
+----------------------
 - **Development:** `yarn start:dev`
 
 - **Production:**  `yarn start:prod`
 
 
 ### Build project 
-
+-----------------------
 - **Development:** `yarn build:dev`
 
 - **Production:**  `yarn build:prod`
