@@ -14,6 +14,7 @@ import { useInjectSaga } from '@utils/injectSaga';
 import { selectApp, selectReposData, selectReposError, selectRepoName } from '@store/selectors/app';
 import { appCreators } from '@store/reducers/app';
 import saga from '@store/sagas/app';
+import { colors } from '@themes';
 
 const { Search } = Input;
 
@@ -42,24 +43,11 @@ const YouAreAwesome = styled.a`
 
   && {
     span {
-      background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, orange, red, violet);
-      text-align: center;
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbow 8s ease infinite;
-    }
-  }
-
-  @keyframes rainbow {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 25%;
-    }
-    100% {
-      background-position: 0% 50%;
+      color: ${colors.primary};
+      text-decoration: underline;
+      :hover {
+        opacity: 0.8;
+      }
     }
   }
 `;

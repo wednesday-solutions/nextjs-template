@@ -8,6 +8,13 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   
+  p,
+  label {
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: ${({ theme }) => theme.colors.text};
+  }
+
   body {
       p, label, span, div, h1  {
         line-height: 1.5;
@@ -23,12 +30,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fafafa;
     min-height: 100%;
     min-width: 100%;
-  }
-  p,
-  label {
-    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    color: ${({ theme }) => theme.colors.text};
   }
 
   #__next{
