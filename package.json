@@ -1,7 +1,7 @@
 {
   "name": "next-js-template",
   "version": "0.1.0",
-  "private": true,  
+  "private": true,
   "scripts": {
     "build:master": "env-cmd -f environments/.env.production next build && next export",
     "build:qa": "env-cmd -f environments/.env.qa next build && next export",
@@ -79,6 +79,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.1.0",
     "@testing-library/react": "^9.4.0",
+    "axios-mock-adapter": "^1.19.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "babel-plugin-import": "^1.13.0",

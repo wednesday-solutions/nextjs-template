@@ -5,28 +5,32 @@
  */
 import produce from 'immer';
 import { createActions } from 'reduxsauce';
-export const initialState = {};
+import get from 'lodash/get';
+
+export const initialState = { repoName: null, reposData: [], reposError: null };
 
 export const { Types: appTypes, Creators: appCreators } = createActions({
-  setLoading: ['loading'],
-  setError: ['error'],
-  requestUserProfile: ['data'],
-  successUserProfile: ['data'],
-  failureUserProfile: ['data']
+  requestGetGithubRepos: ['repoName'],
+  successGetGithubRepos: ['data'],
+  failureGetGithubRepos: ['error'],
+  clearGithubRepos: []
 });
 
 /* eslint-disable default-case, no-param-reassign */
 export const appReducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {
-      case appTypes.SET_LOADING:
-        draft.loading = action.loading;
+      case appTypes.REQUEST_GET_GITHUB_REPOS:
+        draft.repoName = action.repoName;
         break;
-      case appTypes.SET_ERROR:
-        draft.error = action.error;
+      case appTypes.CLEAR_GITHUB_REPOS:
+        return initialState;
+      case appTypes.SUCCESS_GET_GITHUB_REPOS:
+        draft.reposData = action.data;
         break;
-      default:
-        return state;
+      case appTypes.FAILURE_GET_GITHUB_REPOS:
+        draft.reposError = get(action.error, 'message', 'something_went_wrong');
+        break;
     }
   });
 

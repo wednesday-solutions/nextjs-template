@@ -1,24 +1,40 @@
-import { makeSelectApp, selectLoading } from '../app';
+import { selectApp, selectRepoName, selectReposData, selectReposError } from '../app';
 
-describe('App selector tests', () => {
+describe('app selector tests', () => {
   let mockedState;
-  const loading = false;
-  const error = null;
+  let repoName;
+  let reposData;
+  let reposError;
+
   beforeEach(() => {
+    repoName = 'mac';
+    reposData = { totalCount: 1, items: [{ repoName }] };
+    reposError = 'There was some error while fetching the repository details';
+
     mockedState = {
       app: {
-        loading,
-        error
+        repoName,
+        reposData,
+        reposError
       }
     };
   });
-
-  it('should select the loading state', () => {
-    const selector = selectLoading();
-    expect(selector(mockedState)).toEqual(loading);
-  });
   it('should select the app state', () => {
-    const selector = makeSelectApp();
-    expect(selector(mockedState)).toEqual({ loading, error });
+    const appSelector = selectApp();
+    expect(appSelector(mockedState)).toEqual(mockedState.app);
+  });
+  it('should select the repoName', () => {
+    const repoSelector = selectRepoName();
+    expect(repoSelector(mockedState)).toEqual(repoName);
+  });
+
+  it('should select reposData', () => {
+    const reposDataSelector = selectReposData();
+    expect(reposDataSelector(mockedState)).toEqual(reposData);
+  });
+
+  it('should select the reposError', () => {
+    const reposErrorSelector = selectReposError();
+    expect(reposErrorSelector(mockedState)).toEqual(reposError);
   });
 });

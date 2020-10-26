@@ -1,5 +1,4 @@
-// import produce from 'immer'
-import { appReducer, appTypes, initialState } from '../app';
+import { appReducer, initialState, appTypes } from '../app';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('App reducer tests', () => {
@@ -12,23 +11,34 @@ describe('App reducer tests', () => {
     expect(appReducer(undefined, {})).toEqual(state);
   });
 
-  it('should return the update the state when an action of type SET_LOADINGs is dispatched', () => {
-    const loading = false;
-    const expectedResult = { ...state, loading };
+  it('should return the initial state when an action of type FETCH_USER is dispatched', () => {
+    const repoName = 'Mohammed Ali Chherawalla';
+    const expectedResult = { ...state, repoName };
     expect(
       appReducer(state, {
-        type: appTypes.SET_LOADING,
-        loading
+        type: appTypes.REQUEST_GET_GITHUB_REPOS,
+        repoName
       })
     ).toEqual(expectedResult);
   });
 
-  it('should return the update the state when an action of type SET_ERROR is dispatched', () => {
-    const error = 'Server Error';
-    const expectedResult = { ...state, error };
+  it('should ensure that the user data is present and userLoading = false when FETCH_USER_SUCCESS is dispatched', () => {
+    const data = { name: 'Mohammed Ali Chherawalla' };
+    const expectedResult = { ...state, reposData: data };
     expect(
       appReducer(state, {
-        type: appTypes.SET_ERROR,
+        type: appTypes.SUCCESS_GET_GITHUB_REPOS,
+        data
+      })
+    ).toEqual(expectedResult);
+  });
+
+  it('should ensure that the userErrorMessage has some data and userLoading = false when FETCH_USER_FAILURE is dispatched', () => {
+    const error = 'something_went_wrong';
+    const expectedResult = { ...state, reposError: error };
+    expect(
+      appReducer(state, {
+        type: appTypes.FAILURE_GET_GITHUB_REPOS,
         error
       })
     ).toEqual(expectedResult);

@@ -16,7 +16,6 @@ module.exports = {
     '!**/testUtils.js',
     '!**/themes/index.js',
     '!**/utils/constants.js',
-    '!**/services/**',
     '!**/configureStore.js',
     '!**/i18n.js',
     '!**/reducers.js',
