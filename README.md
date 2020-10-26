@@ -29,7 +29,7 @@
 - **Production:**  `yarn start:prod`
 
 
-### Build project 
+### Build project (SSG)
 
 - **Development:** `yarn build:dev`
 
