@@ -23,7 +23,6 @@
 
 
 ### Start server
-----------------
 
 - **Development:** `yarn start:dev`
 
@@ -31,7 +30,6 @@
 
 
 ### Build project 
------------------
 
 - **Development:** `yarn build:dev`
 
