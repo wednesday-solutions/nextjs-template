@@ -1,4 +1,4 @@
-# Next.js template
+## Next.js template
 ------------------
 
 ### Highlights
