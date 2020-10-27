@@ -10,7 +10,7 @@
     "start:qa": "env-cmd -f environments/.env.qa next dev",
     "start:dev": "env-cmd -f environments/.env.development next dev",
     "dev": "next dev",
-    "dev:local": "export RUN_LOCAL_HTTPS=true && env-cmd -f environments/.env.development node server/index.js",
+    "custom:dev": "env-cmd -f environments/.env.development node server/index.js",
     "build": "next build && next export",
     "start": "next start",
     "test": "jest --coverage",

@@ -35,6 +35,10 @@
 
 - **Production:**  `yarn build:prod`
 
+## Custom server
+
+- `yarn custom:dev`
+
 
 
 
