@@ -24,7 +24,9 @@
     "test:clean": "rimraf ./coverage",
     "test:staged": "jest --findRelatedTests",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "predeploy": "yarn build:prod",
+    "deploy": "gh-pages -d out"
   },
   "lint-staged": {
     "*.js": [
