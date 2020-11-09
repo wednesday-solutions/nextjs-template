@@ -55,7 +55,7 @@
 
   - [app/components/Text/index.js](app/components/Text/index.js)
   - [pages/index.js](pages/index.js)
-  - [pages/\document.js](pages/document.js)
+  - [pages/\_document.js](pages/_document.js)
 
 ## Using antd as the component library
 
