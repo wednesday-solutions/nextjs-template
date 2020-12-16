@@ -1,11 +1,9 @@
-# Next.js template
-
 <div>
   <a href="https://www.wednesday.is?utm_source=gthb&utm_medium=repo&utm_campaign=serverless" align="left" style="margin-left: 0;">
     <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f5879492fafecdb3e5b0e75_wednesday_logo.svg">
   </a>
   <p>
-    <h1 align="left">Next.js
+    <h1 align="left">Next.js Template
     </h1>
   </p>
 
