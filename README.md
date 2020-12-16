@@ -1,5 +1,7 @@
 # Next.js template
 
+An enterprise Next.js template application showcasing - Testing strategies, Global state management, Custom enviornments, a network layer, component library integration, localization, Image loading, Custom App, Custom document, IE 11 compatibility and Continuous integration & deployment.
+
 ### Out of the box support
 
 - Global state management using `redux`
@@ -173,4 +175,4 @@ Take a look at the following files
 
 ### Custom app
 
-- [pages/\app.js](pages/app.js)
+- [pages/\_app.js](pages/_app.js)
