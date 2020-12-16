@@ -1,4 +1,38 @@
-# Next.js template
+<div>
+  <a href="https://www.wednesday.is?utm_source=gthb&utm_medium=repo&utm_campaign=serverless" align="left" style="margin-left: 0;">
+    <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f5879492fafecdb3e5b0e75_wednesday_logo.svg">
+  </a>
+  <p>
+    <h1 align="left">Next.js Template
+    </h1>
+  </p>
+
+  <p>
+An enterprise Next.js template application showcasing - Testing strategies, Global state management, Custom enviornments, a network layer, component library integration, localization, Image loading, Custom App, Custom document, IE 11 compatibility and Continuous integration & deployment.
+  </p>
+
+---
+
+  <p>
+    <h4>
+      Expert teams of digital product strategists, developers, and designers.
+    </h4>
+  </p>
+
+  <div>
+    <a href="https://www.wednesday.is/contact-us?utm_source=gthb&utm_medium=repo&utm_campaign=serverless" target="_blank">
+      <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f6ae88b9005f9ed382fb2a5_button_get_in_touch.svg" width="121" height="34">
+    </a>
+    <a href="https://github.com/wednesday-solutions/" target="_blank">
+      <img src="https://uploads-ssl.webflow.com/5ee36ce1473112550f1e1739/5f6ae88bb1958c3253756c39_button_follow_on_github.svg" width="168" height="34">
+    </a>
+  </div>
+
+---
+
+<span>We’re always looking for people who value their work, so come and join us. <a href="https://www.wednesday.is/hiring">We are hiring!</a></span>
+
+</div>
 
 ### Out of the box support
 
@@ -173,4 +207,4 @@ Take a look at the following files
 
 ### Custom app
 
-- [pages/\app.js](pages/app.js)
+- [pages/\_app.js](pages/_app.js)
