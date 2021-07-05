@@ -5,6 +5,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
+import { createInjectorsEnhancer } from 'redux-injectors';
 
 import createReducer from './reducers';
 
@@ -36,9 +37,13 @@ export default function configureStore(initialState = {}) {
   const middlewares = [sagaMiddleware];
 
   const enhancers = [applyMiddleware(...middlewares)];
+  const runSaga = sagaMiddleware.run;
+  const injectEnhancer = createInjectorsEnhancer({
+    createReducer,
+    runSaga
+  });
 
-  const store = createStore(createReducer(), initialState, composeEnhancers(...enhancers));
-
+  const store = createStore(createReducer(), initialState, composeEnhancers(...enhancers, injectEnhancer));
   // Extensions
   store.runSaga = sagaMiddleware.run;
   store.injectedReducers = {}; // Reducer registry
