@@ -13,7 +13,7 @@ import T from '@components/Text';
 import { injectSaga } from 'redux-injectors';
 import { selectApp, selectReposData, selectReposError, selectRepoName } from '@store/selectors/app';
 import { appCreators } from '@store/reducers/app';
-import { colors } from '@themes';
+import { colors } from '../app/themes';
 import appSaga from '@store/sagas/app';
 
 const { Search } = Input;
