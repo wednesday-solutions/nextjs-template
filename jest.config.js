@@ -21,6 +21,7 @@ module.exports = {
     '!**/reducers.js',
     '!**/polyfills.js'
   ],
+  testEnvironment: 'jsdom',
   coverageThreshold: {
     global: {
       statements: 70,
