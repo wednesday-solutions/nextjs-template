@@ -13,5 +13,6 @@
   "repository_full_name": "Repository full name: {fullName}",
   "repository_stars": "Repository stars: {stars}",
   "wednesday_solutions": "Wednesday Solutions",
-  "you_are_awesome": "You are awesome"
+  "you_are_awesome": "You are awesome",
+  "recommended": "Recommended"
 }

@@ -1,66 +1,36 @@
 import React, { useEffect, memo, useState } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
 import get from 'lodash/get';
-import debounce from 'lodash/debounce';
+import { compose } from 'redux';
+import PropTypes from 'prop-types';
+import { Input, Divider, Row } from 'antd';
 import isEmpty from 'lodash/isEmpty';
-import { Card, Skeleton, Input } from 'antd';
-import styled from 'styled-components';
-import { injectIntl } from 'react-intl';
+import { connect } from 'react-redux';
+import debounce from 'lodash/debounce';
+import { createStructuredSelector } from 'reselect';
 import T from '@components/Text';
-import { useInjectSaga } from '@utils/injectSaga';
-import { selectApp, selectReposData, selectReposError, selectRepoName } from '@store/selectors/app';
-import { appCreators } from '@store/reducers/app';
+import { fonts } from '@themes';
 import saga from '@store/sagas/app';
-import { colors } from '@themes';
+import { injectIntl } from 'react-intl';
+import { Container } from '@components/styled';
+import { appCreators } from '@store/reducers/app';
+import { useInjectSaga } from '@utils/injectSaga';
+import commonPropTypes from '@utils/commonPropTypes';
+import { getReccomendations } from '@services/root';
+import { selectApp, selectReposData, selectReposError, selectRepoName } from '@store/selectors/app';
+import { types, RepoList, Recommended, ErrorState, StyledComponents } from './_root';
 
 const { Search } = Input;
-
-const CustomCard = styled(Card)`
-  && {
-    margin: 20px 0;
-    max-width: ${(props) => props.maxwidth};
-    color: ${(props) => props.color};
-    ${(props) => props.color && `color: ${props.color}`};
-  }
-`;
-const Container = styled.div`
-  && {
-    display: flex;
-    flex-direction: column;
-    max-width: ${(props) => props.maxwidth}px;
-    width: 100%;
-    margin: 0 auto;
-    padding: ${(props) => props.padding}px;
-  }
-`;
-
-const YouAreAwesome = styled.a`
-  display: block;
-  text-align: right;
-
-  && {
-    span {
-      color: ${colors.primary};
-      text-decoration: underline;
-      :hover {
-        opacity: 0.8;
-      }
-    }
-  }
-`;
+const { YouAreAwesome, CustomCard } = StyledComponents;
 
 export function App({
-  dispatchGithubRepos,
-  dispatchClearGithubRepos,
   intl,
-  reposData = {},
-  reposError = null,
   repoName,
   maxwidth,
-  padding
+  reposData = {},
+  recommendations,
+  reposError = null,
+  dispatchGithubRepos,
+  dispatchClearGithubRepos
 }) {
   useInjectSaga({ key: 'app', saga });
   const [loading, setLoading] = useState(false);
@@ -88,58 +58,25 @@ export function App({
     }
   };
   const debouncedHandleOnChange = debounce(handleOnChange, 200);
-
-  const renderRepoList = () => {
-    const items = get(reposData, 'items', []);
-    const totalCount = get(reposData, 'totalCount', 0);
-    return (
-      (items.length !== 0 || loading) && (
-        <CustomCard>
-          <Skeleton loading={loading} active>
-            {repoName && (
-              <div>
-                <T id="search_query" values={{ repoName }} />
-              </div>
-            )}
-            {totalCount !== 0 && (
-              <div>
-                <T id="matching_repos" values={{ totalCount }} />
-              </div>
-            )}
-            {items.map((item, index) => (
-              <CustomCard key={index}>
-                <T id="repository_name" values={{ name: item.name }} />
-                <T id="repository_full_name" values={{ fullName: item.fullName }} />
-                <T id="repository_stars" values={{ stars: item.stargazersCount }} />
-              </CustomCard>
-            ))}
-          </Skeleton>
-        </CustomCard>
-      )
-    );
-  };
-  const renderErrorState = () => {
-    let repoError;
-    if (reposError) {
-      repoError = reposError;
-    } else if (!get(reposData, 'totalCount', 0)) {
-      repoError = 'respo_search_default';
-    }
-    return (
-      !loading &&
-      repoError && (
-        <CustomCard color={reposError ? 'red' : 'grey'} title={intl.formatMessage({ id: 'repo_list' })}>
-          <T id={repoError} />
-        </CustomCard>
-      )
-    );
-  };
-
   return (
-    <Container maxwidth={maxwidth} padding={padding}>
-      <YouAreAwesome href="https://www.iamawesome.com/">
-        <T id="you_are_awesome" />
-      </YouAreAwesome>
+    <Container
+      padding={20}
+      maxwidth={500}
+      style={{
+        height: '100vh',
+        alignSelf: 'center'
+      }}
+    >
+      <Row>
+        <T id="recommended" styles={fonts.style.subheading()} />
+      </Row>
+      <Row justify="space-between">
+        <Recommended recommendations={recommendations} />
+        <YouAreAwesome href="https://www.iamawesome.com/">
+          <T id="you_are_awesome" />
+        </YouAreAwesome>
+      </Row>
+      <Divider />
       <CustomCard title={intl.formatMessage({ id: 'repo_search' })} maxwidth={maxwidth}>
         <T marginBottom={10} id="get_repo_details" />
         <Search
@@ -150,44 +87,53 @@ export function App({
           onSearch={(searchText) => debouncedHandleOnChange(searchText)}
         />
       </CustomCard>
-      {renderRepoList()}
-      {renderErrorState()}
+      <RepoList reposData={reposData} loading={loading} repoName={repoName} />
+      <ErrorState reposData={reposData} loading={loading} reposError={reposError} />
     </Container>
   );
 }
 
+export async function getStaticProps() {
+  const recommendations = await getReccomendations();
+  return {
+    props: {
+      recommendations
+    }
+  };
+}
+
+const { reposData, reposError, repoName, recommendations } = types;
+const { intl } = commonPropTypes;
+
 App.propTypes = {
-  dispatchGithubRepos: PropTypes.func,
-  dispatchClearGithubRepos: PropTypes.func,
-  intl: PropTypes.object,
-  reposData: PropTypes.shape({
-    totalCount: PropTypes.number,
-    incompleteResults: PropTypes.bool,
-    items: PropTypes.array
-  }),
-  reposError: PropTypes.object,
-  repoName: PropTypes.string,
+  intl,
+  repoName,
+  reposData,
+  reposError,
+  recommendations,
+  padding: PropTypes.number,
   maxwidth: PropTypes.number,
-  padding: PropTypes.number
+  dispatchGithubRepos: PropTypes.func,
+  dispatchClearGithubRepos: PropTypes.func
 };
 
 App.defaultProps = {
-  maxwidth: 500,
-  padding: 20
+  padding: 20,
+  maxwidth: 500
 };
 
 const mapStateToProps = createStructuredSelector({
   app: selectApp(),
+  repoName: selectRepoName(),
   reposData: selectReposData(),
-  reposError: selectReposError(),
-  repoName: selectRepoName()
+  reposError: selectReposError()
 });
 
 function mapDispatchToProps(dispatch) {
   const { requestGetGithubRepos, clearGithubRepos } = appCreators;
   return {
-    dispatchGithubRepos: (repoName) => dispatch(requestGetGithubRepos(repoName)),
-    dispatchClearGithubRepos: () => dispatch(clearGithubRepos())
+    dispatchClearGithubRepos: () => dispatch(clearGithubRepos()),
+    dispatchGithubRepos: (repoName) => dispatch(requestGetGithubRepos(repoName))
   };
 }
 

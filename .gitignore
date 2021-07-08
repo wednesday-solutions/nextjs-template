@@ -36,3 +36,6 @@ yarn-error.log*
 # server
 server/server.crt
 server/server.key
+
+#editors
+.vscode/
