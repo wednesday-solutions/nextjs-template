@@ -4,10 +4,11 @@
 
 import { combineReducers } from 'redux';
 
-import { appReducer } from './store/reducers/app';
+import { appReducer } from '@store/reducers/app';
 
-export default function createReducer() {
+export default function createReducer(injectedReducer = {}) {
   const rootReducer = combineReducers({
+    ...injectedReducer,
     app: appReducer
   });
 

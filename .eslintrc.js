@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', 'jest'],
 
-  extends: ['prettier', 'prettier/react', 'prettier-standard', 'plugin:react/recommended'],
+  extends: ['prettier', 'prettier-standard', 'plugin:react/recommended'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
     'import/no-webpack-loader-syntax': 0,

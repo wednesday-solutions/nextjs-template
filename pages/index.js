@@ -10,11 +10,11 @@ import { Card, Skeleton, Input } from 'antd';
 import styled from 'styled-components';
 import { injectIntl } from 'react-intl';
 import T from '@components/Text';
-import { useInjectSaga } from '@utils/injectSaga';
+import { injectSaga } from 'redux-injectors';
 import { selectApp, selectReposData, selectReposError, selectRepoName } from '@store/selectors/app';
 import { appCreators } from '@store/reducers/app';
-import saga from '@store/sagas/app';
-import { colors } from '@themes';
+import { colors } from '../app/themes';
+import appSaga from '@store/sagas/app';
 
 const { Search } = Input;
 
@@ -62,7 +62,6 @@ export function App({
   maxwidth,
   padding
 }) {
-  useInjectSaga({ key: 'app', saga });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -193,4 +192,4 @@ function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(injectIntl, withConnect, memo)(App);
+export default compose(injectIntl, withConnect, memo, injectSaga({ key: 'app', saga: appSaga }))(App);
