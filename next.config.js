@@ -8,7 +8,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-
   module: {
     rules: [
       {
@@ -23,14 +22,10 @@ module.exports = {
       }
     ]
   },
-
-  // more options in the optional jshint object
   jshint: {
     camelcase: true,
     emitErrors: false,
     failOnHint: false,
-
-    // custom reporter function
     reporter: function (errors) {}
   }
 };
