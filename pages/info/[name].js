@@ -6,17 +6,17 @@ import { Row, Col, Card, Skeleton } from 'antd';
 import { connect } from 'react-redux';
 import { useRouter } from 'next/router';
 import { createStructuredSelector } from 'reselect';
+import saga from '@store/sagas/info';
 import fonts from '@app/themes/fonts';
+import Title from '@components/Title';
 import { getRepo } from '@app/services/info';
 import Text from '@app/components/Text/index';
 import { Container } from '@components/styled';
-import saga from '@store/sagas/info';
 import { getReccomendations } from '@services/root';
 import { useInjectSaga } from '@app/utils/injectSaga';
 import { requestInfo } from '@app/store/reducers/info';
 import commonPropTypes from '@app/utils/commonPropTypes';
 import { selectInfoData, selectInfoLoading } from '@app/store/selectors/info';
-import { types, Title } from './_name';
 
 const RepoDetails = (props) => {
   const { details, params, loading, dispatchRequestInfo, fallBackDetails } = props;
@@ -51,6 +51,11 @@ const RepoDetails = (props) => {
       </Col>
     </Row>
   );
+};
+
+const types = {
+  name: PropTypes.string.isRequired,
+  stargazersCount: PropTypes.number.isRequired
 };
 
 const { name, stargazersCount } = types;

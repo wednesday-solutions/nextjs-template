@@ -5,11 +5,11 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Skeleton } from 'antd';
 import { StarOutlined } from '@ant-design/icons';
 import Text from '@app/components/Text/index';
 import fonts from '@app/themes/fonts';
-import types from '../typedef';
 import commonPropTypes from '@app/utils/commonPropTypes';
 
 function Title(props) {
@@ -27,6 +27,10 @@ function Title(props) {
   );
 }
 
+const types = {
+  name: PropTypes.string.isRequired,
+  stargazersCount: PropTypes.number.isRequired
+};
 const { name, stargazersCount } = types;
 const { loading } = commonPropTypes;
 

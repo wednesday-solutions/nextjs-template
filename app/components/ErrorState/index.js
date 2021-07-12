@@ -7,11 +7,11 @@
 import React from 'react';
 import get from 'lodash/get';
 import { compose } from 'redux';
+import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import T from '@components/Text';
 import commonPropTypes from '@utils/commonPropTypes';
-import types from '../typedef';
-import { CustomCard } from '../styled';
+import { CustomCard } from '../styled/root';
 
 const ErrorState = (props) => {
   const { intl, reposError, loading, reposData } = props;
@@ -36,6 +36,20 @@ const ErrorState = (props) => {
       </CustomCard>
     )
   );
+};
+const types = {
+  reposData: PropTypes.arrayOf(
+    PropTypes.shape({
+      totalCount: PropTypes.number,
+      incompleteResults: PropTypes.bool,
+      items: PropTypes.array
+    })
+  ),
+  reposError: PropTypes.object,
+  repoName: PropTypes.string,
+  recommendations: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
+  )
 };
 
 const { intl, loading } = commonPropTypes;

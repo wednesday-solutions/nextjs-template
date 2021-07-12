@@ -7,11 +7,11 @@
 import React from 'react';
 import get from 'lodash/get';
 import { Skeleton } from 'antd';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import T from '@components/Text';
 import commonPropTypes from '@utils/commonPropTypes';
-import types from '../typedef';
-import { CustomCard } from '../styled';
+import { CustomCard } from '../styled/root';
 
 const RepoList = (props) => {
   const { reposData, loading, repoName } = props;
@@ -44,6 +44,17 @@ const RepoList = (props) => {
       </CustomCard>
     )
   );
+};
+
+const types = {
+  reposData: PropTypes.arrayOf(
+    PropTypes.shape({
+      totalCount: PropTypes.number,
+      incompleteResults: PropTypes.bool,
+      items: PropTypes.array
+    })
+  ),
+  repoName: PropTypes.string
 };
 
 const { loading } = commonPropTypes;

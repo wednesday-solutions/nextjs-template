@@ -5,10 +5,10 @@
  */
 
 import React from 'react';
-import { useRouter } from 'next/router';
 import { Row, Col } from 'antd';
-import types from '../typedef';
-import { ClickableTags } from '../styled';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import { ClickableTags } from '../styled/root';
 
 const Recommended = (props) => {
   const { recommendations } = props;
@@ -24,10 +24,10 @@ const Recommended = (props) => {
   );
 };
 
-const { recommendations } = types;
-
 Recommended.propTypes = {
-  recommendations
+  recommendations: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
+  )
 };
 
 export default Recommended;

@@ -5,7 +5,7 @@ describe('info tests', () => {
   it('should ensure it throws err when ther is not any repo', () => {
     const { getRepo } = require('../info');
     const repoErr = getRepo();
-    expect(repoErr).rejects.toMatch('repo unavailable');
+    return expect(repoErr).rejects.toEqual(new Error('repo unavailable'));
   });
 
   it('should ensure it returns data when response is ok', async () => {

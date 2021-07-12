@@ -11,13 +11,16 @@ import T from '@components/Text';
 import { fonts } from '@themes';
 import saga from '@store/sagas/app';
 import { injectIntl } from 'react-intl';
+import RepoList from '@components/RepoList';
 import { Container } from '@components/styled';
+import ErrorState from '@components/ErrorState';
+import Recommended from '@components/Recommended';
 import { appCreators } from '@store/reducers/app';
 import { useInjectSaga } from '@utils/injectSaga';
 import commonPropTypes from '@utils/commonPropTypes';
 import { getReccomendations } from '@services/root';
 import { selectApp, selectReposData, selectReposError, selectRepoName } from '@store/selectors/app';
-import { types, RepoList, Recommended, ErrorState, StyledComponents } from './_root';
+import StyledComponents from '@components/styled/root';
 
 const { Search } = Input;
 const { YouAreAwesome, CustomCard } = StyledComponents;
@@ -102,9 +105,23 @@ export async function getStaticProps() {
   };
 }
 
+const types = {
+  reposData: PropTypes.arrayOf(
+    PropTypes.shape({
+      totalCount: PropTypes.number,
+      incompleteResults: PropTypes.bool,
+      items: PropTypes.array
+    })
+  ),
+  reposError: PropTypes.object,
+  repoName: PropTypes.string,
+  recommendations: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
+  )
+};
+
 const { reposData, reposError, repoName, recommendations } = types;
 const { intl } = commonPropTypes;
-
 App.propTypes = {
   intl,
   repoName,
