@@ -22,7 +22,7 @@ const ErrorState = (props) => {
     repoError = 'respo_search_default';
   }
   if (!loading && !repoError) {
-    return <></>;
+    return null;
   }
   return (
     !loading &&
