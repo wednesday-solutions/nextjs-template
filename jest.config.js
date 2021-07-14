@@ -44,6 +44,5 @@ module.exports = {
       '<rootDir>/config/jest/image.js'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  // setupFiles: ['raf/polyfill'],
   testRegex: 'tests/.*\\.test\\.js$'
 };
