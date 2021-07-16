@@ -19,25 +19,18 @@ const RepoList = (props) => {
 
   const items = get(reposData, 'items', []);
   const totalCount = get(reposData, 'totalCount', 0);
+  const BlockText = (props) => <T display="block" {...props} />;
   return (
     (items.length !== 0 || loading) && (
       <CustomCard data-testid="repo-list">
         <Skeleton loading={loading} active>
-          {repoName && (
-            <div>
-              <T id="search_query" values={{ repoName }} />
-            </div>
-          )}
-          {totalCount !== 0 && (
-            <div>
-              <T id="matching_repos" values={{ totalCount }} />
-            </div>
-          )}
+          {repoName && <BlockText id="search_query" values={{ repoName }} />}
+          {totalCount !== 0 && <BlockText id="matching_repos" values={{ totalCount }} />}
           {items.map((item, index) => (
             <CustomCard key={index} onClick={() => router.push(`/info/${item?.name}?owner=${item?.owner.login}`)}>
-              <T id="repository_name" values={{ name: item.name }} />
-              <T id="repository_full_name" values={{ fullName: item.fullName }} />
-              <T id="repository_stars" values={{ stars: item.stargazersCount }} />
+              <BlockText id="repository_name" values={{ name: item.name }} />
+              <BlockText id="repository_full_name" values={{ fullName: item.fullName }} />
+              <BlockText id="repository_stars" values={{ stars: item.stargazersCount }} />
             </CustomCard>
           ))}
         </Skeleton>

@@ -11,6 +11,7 @@ import { FormattedMessage as T } from 'react-intl';
 
 const StyledText = styled.span`
   white-space: pre-line;
+  ${({ display }) => display && `display: ${display}`};
   ${(props) => props.color && `color: ${props.color}`};
   ${(props) => props.fontsize};
   ${(props) => props.fontweight};
@@ -31,7 +32,8 @@ Text.propTypes = {
   values: PropTypes.object,
   color: PropTypes.string,
   fontWeight: PropTypes.array,
-  fontSize: PropTypes.array
+  fontSize: PropTypes.array,
+  display: PropTypes.oneOf(['block', 'in-line'])
 };
 
 export default memo(Text);
