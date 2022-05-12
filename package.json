@@ -41,6 +41,7 @@
     ]
   },
   "pre-commit": "lint:staged",
+  
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@formatjs/cli": "^4.8.4",
