@@ -3,33 +3,26 @@
  * Repos reducer
  *
  */
-import {
-  PAYLOAD,
-  chainDraftSetters,
-  startLoading,
-  stopLoading,
-  setError,
-} from '@app/utils/reducer';
+import { PAYLOAD, chainDraftSetters, startLoading, stopLoading, setError } from '@app/utils/reducer';
 import produce from 'immer';
 import { createActions } from 'reduxsauce';
 
 export const REPOS_PAYLOAD = {
-  SEARCH_KEY: 'searchKey',
+  SEARCH_KEY: 'searchKey'
 };
 
 export const initialState = {
   [REPOS_PAYLOAD.SEARCH_KEY]: null,
   data: [],
-  error: null,
+  error: null
 };
 
-export const { Types: reposActionTypes, Creators: reposActionCreators } =
-  createActions({
-    requestGetGithubRepos: [REPOS_PAYLOAD.SEARCH_KEY],
-    successGetGithubRepos: [PAYLOAD.DATA],
-    failureGetGithubRepos: [PAYLOAD.ERROR],
-    clearGithubRepos: null,
-  });
+export const { Types: reposActionTypes, Creators: reposActionCreators } = createActions({
+  requestGetGithubRepos: [REPOS_PAYLOAD.SEARCH_KEY],
+  successGetGithubRepos: [PAYLOAD.DATA],
+  failureGetGithubRepos: [PAYLOAD.ERROR],
+  clearGithubRepos: null
+});
 
 export const reposReducer = (state, action) =>
   produce(state, (draft) => {

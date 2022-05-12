@@ -1,6 +1,6 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
-import { getRepos } from '@services/repoApi';
-import { reposActionTypes, reposActionCreators, REPOS_PAYLOAD } from './reducer';
+import { put, takeLatest } from 'redux-saga/effects';
+// import { getRepos } from '@services/repoApi';
+import { reposActionTypes, reposActionCreators } from './reducer';
 
 const { REQUEST_GET_GITHUB_REPOS } = reposActionTypes;
 const { successGetGithubRepos, failureGetGithubRepos } = reposActionCreators;
