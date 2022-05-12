@@ -5,9 +5,9 @@
  */
 import produce from 'immer';
 import { createActions } from 'reduxsauce';
-import { chainMethods, setData, startLoading, stopLoading } from './utils';
+import { chainDraftSetters, setData, startLoading, stopLoading } from '../../utils/reducer';
 
-export const initialState = new Map(Object.entries({ loading: false, data: {} }));
+export const initialState = { loading: false, data: {}, error: null };
 
 export const { Types: infoTypes, Creators: infoCreators } = createActions({
   requestInfo: ['repo', 'owner'],
@@ -24,7 +24,7 @@ export const infoReducer = (state = initialState, action) =>
       case REQUEST_INFO:
         return startLoading(draft);
       case SUCCESS_INFO:
-        return chainMethods(draft, [stopLoading, [setData, action.data]]);
+        return chainDraftSetters(draft, [stopLoading, [setData, [action.data]]]);
       case FAILURE_INFO:
         return stopLoading(draft);
     }

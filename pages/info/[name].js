@@ -15,7 +15,6 @@ import { Container } from '@components/styled';
 import { getReccomendations } from '@services/root';
 import { useInjectSaga } from '@app/utils/injectSaga';
 import { requestInfo } from '@app/store/reducers/info';
-import commonPropTypes from '@app/utils/commonPropTypes';
 import { selectInfoData, selectInfoLoading } from '@app/store/selectors/info';
 
 const RepoDetails = (props) => {
@@ -53,25 +52,17 @@ const RepoDetails = (props) => {
   );
 };
 
-const types = {
-  name: PropTypes.string.isRequired,
-  stargazersCount: PropTypes.number.isRequired
-};
-
-const { name, stargazersCount } = types;
-const { loading, dispatch } = commonPropTypes;
-
 RepoDetails.propTypes = {
   details: PropTypes.shape({
-    name,
-    stargazersCount,
-    description: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    stargazersCount: PropTypes.number.isRequired
   }),
   params: {
-    name
+    name: PropTypes.string.isRequired
   },
-  loading,
-  dispatchRequestInfo: dispatch,
+  loading: PropTypes.bool.isRequired,
+  dispatchRequestInfo: PropTypes.func.isRequired,
   fallBackDetails: PropTypes.object
 };
 

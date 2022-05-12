@@ -31,9 +31,3 @@ export const ClickableTags = styled(Tag)`
     border: 1px solid ${colors.primary};
   }
 `;
-
-export default {
-  CustomCard,
-  YouAreAwesome,
-  ClickableTags
-};

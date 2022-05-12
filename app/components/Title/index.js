@@ -10,7 +10,6 @@ import { Row, Skeleton } from 'antd';
 import { StarOutlined } from '@ant-design/icons';
 import Text from '@app/components/Text/index';
 import fonts from '@app/themes/fonts';
-import commonPropTypes from '@app/utils/commonPropTypes';
 
 function Title(props) {
   const { name, loading, stargazersCount } = props;
@@ -27,17 +26,10 @@ function Title(props) {
   );
 }
 
-const types = {
+Title.propTypes = {
+  loading: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   stargazersCount: PropTypes.number.isRequired
-};
-const { name, stargazersCount } = types;
-const { loading } = commonPropTypes;
-
-Title.propTypes = {
-  name,
-  loading,
-  stargazersCount
 };
 
 export default Title;

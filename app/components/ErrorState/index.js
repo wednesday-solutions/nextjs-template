@@ -10,8 +10,7 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import T from '@components/Text';
-import commonPropTypes from '@utils/commonPropTypes';
-import { CustomCard } from '../styled/root';
+import { CustomCard } from '../styled/repos';
 
 const ErrorState = (props) => {
   const { intl, reposError, loading, reposData } = props;
@@ -37,7 +36,10 @@ const ErrorState = (props) => {
     )
   );
 };
-const types = {
+
+ErrorState.propTypes = {
+  intl: PropTypes.any,
+  loading: PropTypes.bool.isRequired,
   reposData: PropTypes.arrayOf(
     PropTypes.shape({
       totalCount: PropTypes.number,
@@ -50,16 +52,6 @@ const types = {
   recommendations: PropTypes.arrayOf(
     PropTypes.shape({ id: PropTypes.number.isRequired, name: PropTypes.string.isRequired })
   )
-};
-
-const { intl, loading } = commonPropTypes;
-const { reposError, reposData } = types;
-
-ErrorState.propTypes = {
-  intl,
-  loading,
-  reposError,
-  reposData
 };
 
 export default compose(injectIntl)(ErrorState);

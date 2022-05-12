@@ -2,17 +2,16 @@
  * Combine all reducers in this file and export the combined reducers.
  */
 
-import { enableMapSet } from 'immer';
 import { combineReducers } from 'redux';
-
-import { appReducer } from './store/reducers/app';
+import { reposReducer } from './containers/Repos/reducer';
+import { enableAllPlugins } from 'immer';
 import infoReducer from './store/reducers/info';
 
-enableMapSet();
+enableAllPlugins();
 
 export default function createReducer() {
   const rootReducer = combineReducers({
-    app: appReducer,
+    repos: reposReducer,
     info: infoReducer
   });
 
