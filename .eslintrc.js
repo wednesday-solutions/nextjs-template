@@ -9,11 +9,12 @@ module.exports = {
     browser: true,
     es6: true,
     amd: true,
-    'jest/globals': true
+    'jest/globals': true,
+    commonjs: true
   },
   plugins: ['react', 'react-hooks', 'jest'],
 
-  extends: ['prettier', 'plugin:react/recommended'],
+  extends: ['prettier', 'prettier/react', 'prettier-standard', 'plugin:react/recommended', 'eslint:recommended'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
     'import/no-webpack-loader-syntax': 0,

@@ -11,7 +11,6 @@ const theme = {
   colors
 };
 
-
 class MyApp extends App {
   static getInitialProps = async ({ Component, ctx }) => {
     return {

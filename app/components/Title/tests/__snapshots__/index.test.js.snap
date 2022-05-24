@@ -12,6 +12,7 @@ exports[`<Title /> should render and match the snapshot 1`] = `
     <div
       class="ant-row ant-row-space-between ant-row-middle"
       data-testid="title"
+      role="row"
     >
       <span
         class="c0"
@@ -30,7 +31,6 @@ exports[`<Title /> should render and match the snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            class=""
             data-icon="star"
             fill="currentColor"
             focusable="false"

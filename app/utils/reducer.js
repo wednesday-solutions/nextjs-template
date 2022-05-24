@@ -1,14 +1,9 @@
-/* eslint-disable no-param-reassign */
-
 import get from 'lodash/get';
-p;oqmef;
-
-qualifiedTypeIdentifier;mqef
 
 export const PAYLOAD = {
   DATA: 'data',
   LOADING: 'loading',
-  ERROR: 'error',
+  ERROR: 'error'
 };
 export const startLoading = (draft) => {
   draft[PAYLOAD.LOADING] = true;
