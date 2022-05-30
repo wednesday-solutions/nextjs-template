@@ -1,19 +1,20 @@
 /*
-  Combine all reducers in this file and export the combined reducers.
+Combine all reducers in this file and export the combined reducers.
 */
 
-import { combineReducers } from 'redux';
-// import { reposReducer } from './containers/Repos/reducer';
 import { enableAllPlugins } from 'immer';
-// import infoReducer from './store/reducers/info';
+import { combineReducers } from 'redux';
+
+import repos from './containers/Repos/reducer';
+import info from './containers/Info/reducer';
 
 enableAllPlugins();
 
 export default function createReducer(injectedReducer = {}) {
   const rootReducer = combineReducers({
-    ...injectedReducer
-    // repos: reposReducer,
-    // info: infoReducer
+    ...injectedReducer,
+    repos,
+    info
   });
 
   return rootReducer;

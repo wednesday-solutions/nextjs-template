@@ -106,8 +106,8 @@ Repos.defaultProps = {
   maxwidth: 500
 };
 const mapStateToProps = createStructuredSelector({
-  reposData: selectReposData(),
-  reposError: selectReposError(),
+  repos: selectReposData(),
+  error: selectReposError(),
   searchKey: selectReposSearchKey()
 });
 
