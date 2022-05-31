@@ -1,4 +1,4 @@
-import { appReducer, initialState, appTypes } from '../app';
+import { appReducer, initialState, appTypes } from '../../../containers/Repos/reducer';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('App reducer tests', () => {

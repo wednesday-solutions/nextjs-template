@@ -1,4 +1,4 @@
-import { chainMethods } from '../utils';
+import { chainMethods } from '../../../utils/reducer';
 
 describe('Utils tests', () => {
   const setter = jest.fn().mockImplementation((input) => {

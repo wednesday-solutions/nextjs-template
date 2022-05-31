@@ -11,10 +11,7 @@ import { useIntl } from 'react-intl';
 import favicon from '@images/favicon.ico';
 
 function Meta({ title, description, useTranslation }) {
-  let intl;
-  if (useTranslation) {
-    intl = useIntl();
-  }
+  const intl = useIntl();
 
   return (
     <Head>

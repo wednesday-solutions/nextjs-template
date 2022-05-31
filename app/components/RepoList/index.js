@@ -10,8 +10,8 @@ import { Skeleton } from 'antd';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import T from '@components/Text';
-import commonPropTypes from '@utils/commonPropTypes';
-import { CustomCard } from '../styled/root';
+import { CustomCard } from '../styled/repos';
+import If from '../If/index';
 
 const RepoList = (props) => {
   const { reposData, loading, repoName } = props;
@@ -21,7 +21,7 @@ const RepoList = (props) => {
   const totalCount = get(reposData, 'totalCount', 0);
   const BlockText = (props) => <T display="block" {...props} />;
   return (
-    (items.length !== 0 || loading) && (
+    <If condition={items.length !== 0 || loading}>
       <CustomCard data-testid="repo-list">
         <Skeleton loading={loading} active>
           {repoName && <BlockText id="search_query" values={{ repoName }} />}
@@ -35,11 +35,12 @@ const RepoList = (props) => {
           ))}
         </Skeleton>
       </CustomCard>
-    )
+    </If>
   );
 };
 
-const types = {
+RepoList.propTypes = {
+  loading: PropTypes.bool.isRequired,
   reposData: PropTypes.arrayOf(
     PropTypes.shape({
       totalCount: PropTypes.number,
@@ -48,15 +49,6 @@ const types = {
     })
   ),
   repoName: PropTypes.string
-};
-
-const { loading } = commonPropTypes;
-const { repoName, reposData } = types;
-
-RepoList.propTypes = {
-  loading,
-  repoName,
-  reposData
 };
 
 export default RepoList;

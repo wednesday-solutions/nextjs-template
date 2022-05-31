@@ -4,8 +4,6 @@ const withTM = require('next-transpile-modules')([
   '@formatjs/intl-relativetimeformat',
   '@formatjs/intl-utils',
   'react-intl',
-  'intl-format-cache',
-  'intl-messageformat-parser',
   'intl-messageformat'
 ]);
 
@@ -27,7 +25,7 @@ module.exports = withTM(
     assetPrefix: process.env.BASE_PATH || '',
     basePath: process.env.BASE_PATH || '',
     trailingSlash: true,
-    webpack(config, options) {
+    webpack(config) {
       config.resolve.alias = constructAlias(config);
       const originalEntry = config.entry;
       config.entry = async () => {

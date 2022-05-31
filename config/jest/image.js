@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  process(src, filename, config, options) {
+  process(_src, filename) {
     let alias;
     try {
       alias = 'module.exports = ' + JSON.stringify(path.basename(filename)) + ';';

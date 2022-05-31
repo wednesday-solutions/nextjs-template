@@ -8,7 +8,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import { ClickableTags } from '../styled/root';
+import { ClickableTags } from '../styled/repos';
 
 const Recommended = (props) => {
   const { recommendations } = props;

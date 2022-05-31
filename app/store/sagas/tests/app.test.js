@@ -5,8 +5,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { getRepos } from '@services/repoApi';
 import { apiResponseGenerator } from '@utils/testUtils';
-import appSaga, { getGithubRepos } from '../app';
-import { appTypes } from '../../reducers/app';
+import appSaga, { getGithubRepos } from '../../../containers/Repos/saga';
+import { appTypes } from '../../../containers/Repos/reducer';
 
 describe('App saga tests', () => {
   const generator = appSaga();
