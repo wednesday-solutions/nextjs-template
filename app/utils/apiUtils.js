@@ -12,6 +12,7 @@ export const getApiClient = (type = 'github') => apiClients[type];
 export const generateApiClient = (type = 'github') => {
   switch (type) {
     case 'github':
+      console.log(process.env.NEXT_PUBLIC_GITHUB_URL, 'NEXT_PUBLIC_GITHUB_URL');
       apiClients[type] = createApiClientWithTransForm(process.env.NEXT_PUBLIC_GITHUB_URL);
       return apiClients[type];
     default:

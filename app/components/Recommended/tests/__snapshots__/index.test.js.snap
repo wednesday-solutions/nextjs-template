@@ -14,11 +14,9 @@ exports[`<Recommended /> should render and match the snapshot 1`] = `
     <div
       class="ant-row"
       data-testid="recommended"
-      role="row"
     >
       <div
         class="ant-col"
-        role="cell"
       >
         <span
           class="ant-tag c0"

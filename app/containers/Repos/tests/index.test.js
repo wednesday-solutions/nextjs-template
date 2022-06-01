@@ -18,7 +18,7 @@ describe('<Repos /> container tests', () => {
   });
 
   it('should render and match the snapshot', () => {
-    const { baseElement } = renderProvider(<Repos />);
+    const { baseElement } = renderProvider(<Repos recommendations={[]} />);
     expect(baseElement).toMatchSnapshot();
   });
 });

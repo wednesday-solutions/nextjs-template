@@ -5,7 +5,7 @@ import { infoTypes, infoCreators, INFO_PAYLOAD } from './reducer';
 
 export function* requestInfo(action) {
   try {
-    if (action[INFO_PAYLOAD.REPO] || action[INFO_PAYLOAD.OWNER]) {
+    if (!action[INFO_PAYLOAD.REPO] || !action[INFO_PAYLOAD.OWNER]) {
       throw new Error(ERRORS.INSUFFICIENT_INFO);
     }
     const response = yield call(getRepo, action[INFO_PAYLOAD.REPO], action[INFO_PAYLOAD.OWNER]);

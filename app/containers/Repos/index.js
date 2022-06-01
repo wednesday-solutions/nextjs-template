@@ -36,6 +36,10 @@ export function Repos({
   dispatchClearGithubRepos
 }) {
   useEffect(() => {
+    console.log(window.localStorage.getItem('test'));
+  }, []);
+
+  useEffect(() => {
     if (repos && !repos?.items?.length) {
       dispatchGetGithubRepos(searchKey);
     }

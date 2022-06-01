@@ -1,19 +1,37 @@
-import { selectRepos, selectSomePayLoad } from '../selectors';
+import { selectReposSearchKey, selectReposData, selectReposError } from '../selectors';
 
-describe('Repos selector tests', () => {
-  const mockedState = {
-    repos: {
-      somePayLoad: 'W.S'
-    }
-  };
+describe('app selector tests', () => {
+  let mockedState;
+  let searchKey;
+  let reposData;
+  let reposError;
 
-  it('should select the repos state', () => {
-    const reposSelector = selectRepos();
-    expect(reposSelector(mockedState)).toEqual(mockedState.repos);
+  beforeEach(() => {
+    searchKey = 'mac';
+    reposData = { totalCount: 1, items: [{ searchKey }] };
+    reposError = 'There was some error while fetching the repository details';
+
+    mockedState = {
+      repos: {
+        searchKey,
+        data: reposData,
+        error: reposError
+      }
+    };
   });
 
-  it('should select the somePayLoad state', () => {
-    const somePayLoadSelector = selectSomePayLoad();
-    expect(somePayLoadSelector(mockedState)).toEqual(mockedState.repos.somePayLoad);
+  it('should select the repoName', () => {
+    const repoSelector = selectReposSearchKey();
+    expect(repoSelector(mockedState)).toEqual(searchKey);
+  });
+
+  it('should select reposData', () => {
+    const reposDataSelector = selectReposData();
+    expect(reposDataSelector(mockedState)).toEqual(reposData);
+  });
+
+  it('should select the reposError', () => {
+    const reposErrorSelector = selectReposError();
+    expect(reposErrorSelector(mockedState)).toEqual(reposError);
   });
 });

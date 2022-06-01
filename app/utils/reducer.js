@@ -20,16 +20,3 @@ export const setData = (draft, action, key = PAYLOAD.DATA, defaultValue = null) 
 export const setError = (draft, action) => {
   setData(draft, action, PAYLOAD.ERROR, 'something_went_wrong');
 };
-
-export const chainDraftSetters = (draft, fns) => {
-  fns.forEach((setterDef) => {
-    if (typeof setterDef === 'function') {
-      setterDef(draft);
-      return;
-    }
-    if (Array.isArray(setterDef)) {
-      const [reducerFn, args = []] = setterDef;
-      reducerFn(draft, ...args);
-    }
-  });
-};
