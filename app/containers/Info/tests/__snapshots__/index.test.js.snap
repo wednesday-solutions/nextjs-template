@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Info /> container tests should render and match the snapshot 1`] = `
+.c0.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+<body>
+  <div>
+    <div
+      class="ant-row ant-row-center ant-row-middle"
+      flex="1 1 90%"
+      style="height: 100vh;"
+    >
+      <div
+        class="ant-col"
+      >
+        <div
+          class="c0"
+          style="min-width: 30rem;"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div
+              class="ant-card-head"
+            >
+              <div
+                class="ant-card-head-wrapper"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  <div
+                    class="ant-row ant-row-space-between ant-row-middle"
+                    data-testid="title"
+                  >
+                    <div
+                      class="ant-skeleton ant-skeleton-active"
+                    >
+                      <div
+                        class="ant-skeleton-content"
+                      >
+                        <h3
+                          class="ant-skeleton-title"
+                          style="width: 38%;"
+                        />
+                        <ul
+                          class="ant-skeleton-paragraph"
+                        >
+                          <li />
+                          <li />
+                          <li
+                            style="width: 61%;"
+                          />
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-card-body"
+            >
+              <div
+                class="ant-skeleton ant-skeleton-active"
+              >
+                <div
+                  class="ant-skeleton-content"
+                >
+                  <h3
+                    class="ant-skeleton-title"
+                    style="width: 38%;"
+                  />
+                  <ul
+                    class="ant-skeleton-paragraph"
+                  >
+                    <li />
+                    <li />
+                    <li
+                      style="width: 61%;"
+                    />
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

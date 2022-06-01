@@ -1,19 +1,28 @@
-import { selectInfo, selectSomePayLoad } from '../selectors';
+import { selectInfoLoading, selectInfoData } from '../selectors';
 
-describe('Info selector tests', () => {
-  const mockedState = {
-    info: {
-      somePayLoad: 'W.S'
-    }
-  };
+describe('info selector tests', () => {
+  let loading;
+  let data;
+  let mockedState;
 
-  it('should select the info state', () => {
-    const infoSelector = selectInfo();
-    expect(infoSelector(mockedState)).toEqual(mockedState.info);
+  beforeEach(() => {
+    loading = true;
+    data = {
+      test: 'passed!'
+    };
+    mockedState = {
+      info: {
+        loading,
+        data
+      }
+    };
   });
-
-  it('should select the somePayLoad state', () => {
-    const somePayLoadSelector = selectSomePayLoad();
-    expect(somePayLoadSelector(mockedState)).toEqual(mockedState.info.somePayLoad);
+  it('should select the infoLoading selector', () => {
+    const selectInfoLoadingSelector = selectInfoLoading();
+    expect(selectInfoLoadingSelector(mockedState)).toBeTruthy();
+  });
+  it('should select the selectInfoData selector', () => {
+    const selectInfoDataSelector = selectInfoData();
+    expect(selectInfoDataSelector(mockedState)).toStrictEqual(data);
   });
 });

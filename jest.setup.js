@@ -10,3 +10,12 @@ Object.defineProperty(window, 'matchMedia', {
     };
   })
 });
+
+jest.mock('next/router', () => {
+  const router = jest.requireActual('next/router');
+  return {
+    __esModule: true,
+    ...router,
+    useRouter: () => ({})
+  };
+});

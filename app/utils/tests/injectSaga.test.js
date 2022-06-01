@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 /* eslint-disable no-import-assign */
 /**
  * Test injectors

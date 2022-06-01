@@ -9,7 +9,7 @@ module.exports = {
     es2021: true,
     'jest/globals': true
   },
-  extends: ['eslint:recommended', 'prettier', 'next'],
+  extends: ['eslint:recommended', 'prettier', 'plugin:import/recommended', 'next'],
   plugins: ['prettier', 'jest'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
@@ -24,5 +24,21 @@ module.exports = {
     it: false,
     expect: false,
     describe: false
+  },
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@app', './app'],
+          ['@components', './app/components'],
+          ['@themes', './app/themes'],
+          ['@utils', './app/utils'],
+          ['@images', './app/images'],
+          ['@store', './app/store'],
+          ['@services', './app/services']
+        ],
+        extensions: ['.ts', '.js', '.jsx', '.json']
+      }
+    }
   }
 };

@@ -5,7 +5,7 @@
  */
 import Text from '@app/components/Text';
 import fonts from '@app/themes/fonts';
-import { useInjectSaga } from '@app/utils/injectSaga';
+import injectSaga from '@app/utils/injectSaga';
 import { Container } from '@components/styled';
 import Title from '@components/Title';
 import { Card, Col, Row, Skeleton } from 'antd';
@@ -16,7 +16,6 @@ import React, { useEffect } from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import injectSaga from '@utils/injectSaga';
 import { createStructuredSelector } from 'reselect';
 
 import { infoCreators } from './reducer';
@@ -27,7 +26,6 @@ export function Info({ details, params, loading, dispatchRequestInfo, fallBackDe
   const router = useRouter();
   const { query } = router;
   const { name, description, stargazersCount } = { ...(details || {}), ...(fallBackDetails || {}) } || {};
-  useInjectSaga({ key: 'info', saga });
   useEffect(() => {
     if (isEmpty(details) && !!params?.name && !!query?.owner) {
       dispatchRequestInfo(params.name, query.owner);

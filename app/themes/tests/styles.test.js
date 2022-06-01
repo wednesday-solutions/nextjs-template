@@ -7,7 +7,7 @@ describe('styles', () => {
   });
 
   it('should have the correct box-shadow', () => {
-    expect(styles.boxShadow(colors.transparent80)).toEqual([
+    expect(styles.boxShadow(colors.transparent80)).toStrictEqual([
       'box-shadow:',
       'rgba(0, 0, 0, 0.2)',
       ' ',
@@ -20,7 +20,7 @@ describe('styles', () => {
   });
 
   it('should have the correct text-shadow', () => {
-    expect(styles.textShadow(colors.transparent80)).toEqual([
+    expect(styles.textShadow(colors.transparent80)).toStrictEqual([
       'text-shadow:',
       'rgba(0, 0, 0, 0.2)',
       ' ',
