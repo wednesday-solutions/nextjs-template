@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Repos from '@app/containers/Repos/index';
 import { getReccomendations } from '@services/root';

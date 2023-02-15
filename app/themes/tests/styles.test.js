@@ -3,7 +3,7 @@ import { colors } from '@themes';
 
 describe('styles', () => {
   it('should have the correct linear-gradient string', () => {
-    expect(styles.defaultLinearGradient('red', 'orange')).toEqual('linear-gradient(red, orange)');
+    expect(styles.defaultLinearGradient('red', 'orange')).toBe('linear-gradient(red, orange)');
   });
 
   it('should have the correct box-shadow', () => {
