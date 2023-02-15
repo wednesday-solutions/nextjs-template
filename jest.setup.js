@@ -1,5 +1,6 @@
 import 'jest-styled-components';
 import '@testing-library/jest-dom/extend-expect';
+import { matchers } from '@emotion/jest';
 
 Object.defineProperty(window, 'matchMedia', {
   value: jest.fn(() => {
@@ -19,3 +20,5 @@ jest.mock('next/router', () => {
     useRouter: () => ({})
   };
 });
+
+expect.extend(matchers);

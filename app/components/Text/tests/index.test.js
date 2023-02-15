@@ -8,9 +8,6 @@ import React from 'react';
 // import { fireEvent } from '@testing-library/dom'
 import { renderProvider } from '@utils/testUtils';
 import Text from '../index';
-import { matchers } from '@emotion/jest';
-
-expect.extend(matchers);
 
 describe('<Text />', () => {
   it('should render and match the snapshot', () => {
