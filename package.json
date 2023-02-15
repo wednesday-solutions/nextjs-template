@@ -33,7 +33,7 @@
     "*.js": [
       "npm run lint:eslint:fix",
       "git add --force",
-      "jest --findRelatedTests $STAGED_FILES"
+      "jest --findRelatedTests --passWithNoTests $STAGED_FILES"
     ],
     "*.json": [
       "prettier --write",
@@ -86,7 +86,7 @@
   "devDependencies": {
     "@babel/core": "7.0.0",
     "@emotion/babel-plugin": "11.10.5",
-    "@emotion/jest": "11.10.5",
+    "@emotion/jest": "^11.10.5",
     "@next/eslint-plugin-next": "^12.1.6",
     "@testing-library/react": "^13.2.0",
     "axios-mock-adapter": "^1.20.0",

@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Title /> should render and match the snapshot 1`] = `
+.emotion-0 {
+  white-space: pre-line;
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
 <body>
   <div>
     <div
@@ -8,13 +14,13 @@ exports[`<Title /> should render and match the snapshot 1`] = `
       data-testid="title"
     >
       <span
-        class="css-3lcaz5"
+        class="emotion-0"
         data-testid="text"
       >
         default
       </span>
       <span
-        class="css-3lcaz5"
+        class="emotion-0"
         data-testid="text"
       >
         <span

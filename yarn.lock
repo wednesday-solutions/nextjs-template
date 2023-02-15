@@ -587,7 +587,7 @@
   dependencies:
     "@emotion/memoize" "^0.8.0"
 
-"@emotion/jest@11.10.5":
+"@emotion/jest@^11.10.5":
   version "11.10.5"
   resolved "https://registry.yarnpkg.com/@emotion/jest/-/jest-11.10.5.tgz#6aea1aec38e1c59e675702fa877644a6b1c18d05"
   integrity sha512-LagosxybgisPlxfBGas9kGcNB5xTTX125WbjEVZiE3MEbb+dI4UYn0XIzrsilR8nUaQ5lH6yKUFrMmz7kB34vg==

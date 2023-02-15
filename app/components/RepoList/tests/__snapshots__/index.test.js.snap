@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RepoList /> should render and match the snapshot 1`] = `
+.emotion-0.emotion-0 {
+  margin: 20px 0;
+}
+
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered css-17akqyf"
+      class="ant-card ant-card-bordered emotion-0"
       data-testid="repo-list"
     >
       <div

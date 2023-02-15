@@ -45,5 +45,6 @@ module.exports = {
       '<rootDir>/config/jest/image.js'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testRegex: 'tests/.*\\.test\\.js$'
+  testRegex: 'tests/.*\\.test\\.js$',
+  snapshotSerializers: ['@emotion/jest/serializer']
 };

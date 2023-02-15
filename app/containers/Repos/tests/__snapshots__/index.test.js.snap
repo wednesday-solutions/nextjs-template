@@ -1,17 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Repos /> container tests should render and match the snapshot 1`] = `
+.emotion-0.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.emotion-1 {
+  white-space: pre-line;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.emotion-2 {
+  text-align: right;
+}
+
+.emotion-2.emotion-2 span {
+  color: #006ED6;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-2.emotion-2 span:hover {
+  opacity: 0.8;
+}
+
+.emotion-3 {
+  white-space: pre-line;
+}
+
+.emotion-4.emotion-4 {
+  margin: 20px 0;
+  max-width: 500;
+}
+
+.emotion-6.emotion-6 {
+  margin: 20px 0;
+  color: grey;
+  color: grey;
+}
+
 <body>
   <div>
     <div
-      class="css-hfh620"
+      class="emotion-0"
       style="height: 100vh; align-self: center;"
     >
       <div
         class="ant-row"
       >
         <span
-          class="css-1ghefj2"
+          class="emotion-1"
           data-testid="text"
         >
           Recommended
@@ -25,11 +74,11 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
           data-testid="recommended"
         />
         <a
-          class="css-12h5u3w"
+          class="emotion-2"
           href="https://www.iamawesome.com/"
         >
           <span
-            class="css-1xtaqd2"
+            class="emotion-3"
             data-testid="text"
           >
             You are awesome
@@ -41,7 +90,7 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
         role="separator"
       />
       <div
-        class="ant-card ant-card-bordered css-17mjypl"
+        class="ant-card ant-card-bordered emotion-4"
         maxwidth="500"
       >
         <div
@@ -61,7 +110,7 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
           class="ant-card-body"
         >
           <span
-            class="css-1xtaqd2"
+            class="emotion-3"
             data-testid="text"
           >
             Get details of repositories
@@ -111,7 +160,7 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
         </div>
       </div>
       <div
-        class="ant-card ant-card-bordered css-ottl98"
+        class="ant-card ant-card-bordered emotion-6"
         color="grey"
         data-testid="error-state"
       >
@@ -132,7 +181,7 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
           class="ant-card-body"
         >
           <span
-            class="css-1xtaqd2"
+            class="emotion-3"
             data-testid="text"
           >
             Search for a repository by entering it's name in the search box
