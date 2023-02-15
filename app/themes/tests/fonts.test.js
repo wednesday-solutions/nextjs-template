@@ -2,29 +2,82 @@ import fonts from '../fonts';
 
 describe('fonts', () => {
   it('should have the correct font-size', () => {
-    expect(fonts.size.small()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:1rem')]));
-    expect(fonts.size.regular()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:1.125rem;')]));
-    expect(fonts.size.big()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:1.75rem;')]));
-    expect(fonts.size.large()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:2.25rem;')]));
-    expect(fonts.size.extraLarge()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:3rem;')]));
+    expect(
+      fonts.size
+        .small()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-size:1rem;');
+    expect(
+      fonts.size
+        .regular()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-size:1.125rem;');
+    expect(
+      fonts.size
+        .big()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-size:1.75rem;');
+    expect(
+      fonts.size
+        .large()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-size:2.25rem;');
+    expect(
+      fonts.size
+        .extraLarge()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-size:3rem;');
   });
   it('should have the correct font-weight', () => {
-    expect(fonts.weights.light()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:300;')]));
-    expect(fonts.weights.bold()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:500;')]));
-    expect(fonts.weights.normal()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:normal;')]));
+    expect(
+      fonts.weights
+        .light()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-weight:300;');
+    expect(
+      fonts.weights
+        .bold()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-weight:500;');
+    expect(
+      fonts.weights
+        .normal()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-weight:normal;');
   });
 
   it('should have the correct font-weight and font-size', () => {
-    expect(fonts.style.heading()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:500;')]));
-    expect(fonts.style.heading()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:2.25rem;')]));
-
-    expect(fonts.style.subheading()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:500;')]));
-    expect(fonts.style.subheading()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:1.75rem;')]));
-
-    expect(fonts.style.standard()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:1.125rem;')]));
-    expect(fonts.style.standard()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:normal;')]));
-
-    expect(fonts.style.subText()).toEqual(expect.arrayContaining([expect.stringContaining('font-size:1rem;')]));
-    expect(fonts.style.subText()).toEqual(expect.arrayContaining([expect.stringContaining('font-weight:normal;')]));
+    expect(
+      fonts.style
+        .heading()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toBe('font-size:2.25rem;;font-weight:500;;');
+    expect(
+      fonts.style
+        .subheading()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toEqual('font-size:1.75rem;;font-weight:500;;');
+    expect(
+      fonts.style
+        .standard()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toEqual('font-size:1.125rem;;font-weight:normal;;');
+    expect(
+      fonts.style
+        .subText()
+        .styles.replace(/[\r\n\s]+/gm, '')
+        .trim()
+    ).toEqual('font-size:1rem;;font-weight:normal;;');
   });
 });

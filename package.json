@@ -43,6 +43,9 @@
   "pre-commit": "lint:staged",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@formatjs/cli": "^5.0.1",
     "@formatjs/intl-relativetimeformat": "^11.0.1",
     "@formatjs/intl-utils": "^3.8.4",
@@ -81,6 +84,9 @@
     "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@emotion/babel-plugin": "11.10.5",
+    "@emotion/jest": "11.10.5",
     "@next/eslint-plugin-next": "^12.1.6",
     "@testing-library/react": "^13.2.0",
     "axios-mock-adapter": "^1.20.0",

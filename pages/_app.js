@@ -2,7 +2,8 @@ import { IntlProvider } from 'react-intl';
 import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import colors from '@themes/colors';
-import GlobalStyle from '@app/global-styles';
+import globalStyle from '@app/global-styles';
+import { Global } from '@emotion/react';
 import { translationMessages, DEFAULT_LOCALE } from '@app/i18n';
 import { wrapper } from '@app/configureStore';
 import 'antd/dist/antd.css';
@@ -26,7 +27,7 @@ class MyApp extends App {
     return (
       <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
+          <Global style={globalStyle} />
           <Component {...pageProps} />
         </ThemeProvider>
       </IntlProvider>

@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from '@emotion/react';
 
 const regular = () => css`
   font-size: 1.125rem;

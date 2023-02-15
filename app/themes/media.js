@@ -1,4 +1,5 @@
-import { css } from 'styled-components';
+import { css } from '@emotion/react';
+
 export const screenSizes = {
   extraLargeDesktop: 1920,
   largeDesktop: 1440,
@@ -17,17 +18,13 @@ export default Object.keys(screenSizes).reduce((acc, label) => {
         @media (min-width: ${screenSizes[label] / 16}em) {
           ${css([args])};
         }
-      `
-        .join('')
-        .replace(' ', ''),
+      `,
     max: (args) =>
       css`
         @media (max-width: ${screenSizes[label] / 16}em) {
           ${css([args])};
         }
       `
-        .join('')
-        .replace(' ', '')
   };
   return acc;
 }, {});

@@ -1,20 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Info /> container tests should render and match the snapshot 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  max-width: px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 <body>
   <div>
     <div
@@ -26,7 +12,7 @@ exports[`<Info /> container tests should render and match the snapshot 1`] = `
         class="ant-col"
       >
         <div
-          class="c0"
+          class="css-1n04s6m"
           style="min-width: 30rem;"
         >
           <div
