@@ -33,7 +33,7 @@
     "*.js": [
       "npm run lint:eslint:fix",
       "git add --force",
-      "jest --findRelatedTests $STAGED_FILES"
+      "jest --findRelatedTests --passWithNoTests $STAGED_FILES"
     ],
     "*.json": [
       "prettier --write",
