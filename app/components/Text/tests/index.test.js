@@ -22,11 +22,11 @@ describe('<Text />', () => {
 
   it('should create a span with display value that is passed as prop', () => {
     const { queryByTestId } = renderProvider(<Text display="block" />);
-    expect(queryByTestId('text')).toHaveStyleRule('display', 'block');
+    expect(queryByTestId('text')).toHaveStyle({ display: 'block' });
   });
 
   it('should not set a display value when a display prop is not passed', () => {
     const { queryByTestId } = renderProvider(<Text />);
-    expect(queryByTestId('text')).not.toHaveStyleRule('display', 'block');
+    expect(queryByTestId('text')).not.toHaveStyle({ display: 'block' });
   });
 });

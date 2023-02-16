@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from '@emotion/react';
 
 const regular = () => css`
   font-size: 1.125rem;
@@ -66,6 +66,7 @@ const subText = () => css`
   ${normal()}
 `;
 
+/* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
   size: {
     regular,

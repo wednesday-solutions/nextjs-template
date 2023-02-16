@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorState /> should render and match the snapshot 1`] = `
-.c1 {
-  white-space: pre-line;
-}
-
-.c0.c0 {
+.emotion-0.emotion-0 {
   margin: 20px 0;
   color: grey;
   color: grey;
 }
 
+.emotion-1 {
+  white-space: pre-line;
+}
+
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered c0"
+      class="ant-card ant-card-bordered emotion-0"
       color="grey"
       data-testid="error-state"
     >
@@ -35,7 +35,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
         class="ant-card-body"
       >
         <span
-          class="c1"
+          class="emotion-1"
           data-testid="text"
         >
           Search for a repository by entering it's name in the search box

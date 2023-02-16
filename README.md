@@ -39,7 +39,7 @@ An enterprise Next.js template application showcasing - Testing strategies, Glob
 - Global state management using `redux`
 - Side Effects using `redux-saga`
 - API calls using `api-sauce`
-- Styling using styled components
+- Styling using emotion
 - Reusing components from Ant design
 - Translations using `react-intl`
 - Custom enviornments using `emv-cmd`
@@ -81,9 +81,9 @@ An enterprise Next.js template application showcasing - Testing strategies, Glob
   - [app/services/repoApi.js](app/services/repoApi.js)
   - [pages/index.js](pages/index.js)
 
-## Styling using styled-components
+## Styling using emotion
 
-- Styling components using [Styled Components](https://styled-components.com)
+- Styling components using [Emotion](https://emotion.sh/)
 
   Take a look at the following files
 

@@ -6,3 +6,9 @@ export const SOMETHING_WENT_WRONG = 'Something went wrong.';
 export const ERRORS = {
   INSUFFICIENT_INFO: 'Insufficient Info'
 };
+
+export const SCREEN_BREAK_POINTS = {
+  mobile: 320,
+  tablet: 768,
+  desktop: 992
+};

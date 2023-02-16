@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Text /> should render and match the snapshot 1`] = `
-.c0 {
+.emotion-0 {
   white-space: pre-line;
 }
 
 <body>
   <div>
     <span
-      class="c0"
+      class="emotion-0"
       data-testid="text"
     >
       default
