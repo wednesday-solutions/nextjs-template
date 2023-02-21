@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@mui/material/styles';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import configureStore from '../configureStore';
-import colors from '@themes/colors';
+import { theme } from '../../pages/_app';
 import { translationMessages, DEFAULT_LOCALE } from '../i18n';
 
 export const getComponentStyles = (Component, props = {}) => {
@@ -18,7 +18,7 @@ export const getComponentStyles = (Component, props = {}) => {
 export const renderProvider = (children) => {
   return render(
     <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
-      <ThemeProvider theme={colors}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </IntlProvider>
   );
 };
@@ -33,7 +33,7 @@ export const renderStoreProvider = (children) => {
   return render(
     <Provider store={store}>
       <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
-        <ThemeProvider theme={colors}>{children}</ThemeProvider>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </IntlProvider>
     </Provider>
   );

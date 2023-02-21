@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Info /> container tests should render and match the snapshot 1`] = `
-.emotion-0.emotion-0 {
+.emotion-0 {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.emotion-1.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,87 +27,143 @@ exports[`<Info /> container tests should render and match the snapshot 1`] = `
   padding: 20px;
 }
 
+.emotion-2 {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.emotion-4 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.emotion-5 {
+  margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.334;
+  letter-spacing: 0em;
+  display: block;
+}
+
+.emotion-6 {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-7 {
+  white-space: pre-line;
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+
+.emotion-9 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+
+.emotion-10 {
+  white-space: pre-line;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
 <body>
   <div>
     <div
-      class="ant-row ant-row-center ant-row-middle"
-      flex="1 1 90%"
-      style="height: 100vh;"
+      class="MuiBox-root emotion-0"
+      data-testid="title"
     >
       <div
-        class="ant-col"
+        class="emotion-1"
+        style="min-width: 30rem;"
       >
         <div
-          class="emotion-0"
-          style="min-width: 30rem;"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-2"
         >
           <div
-            class="ant-card ant-card-bordered"
+            class="MuiCardHeader-root emotion-3"
           >
             <div
-              class="ant-card-head"
+              class="MuiCardHeader-content emotion-4"
             >
-              <div
-                class="ant-card-head-wrapper"
+              <span
+                class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title emotion-5"
               >
                 <div
-                  class="ant-card-head-title"
+                  class="MuiBox-root emotion-6"
+                  data-testid="title"
                 >
-                  <div
-                    class="ant-row ant-row-space-between ant-row-middle"
-                    data-testid="title"
+                  <span
+                    class="emotion-7"
+                    data-testid="text"
                   >
-                    <div
-                      class="ant-skeleton ant-skeleton-active"
+                    default
+                  </span>
+                  <span
+                    class="emotion-7"
+                    data-testid="text"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-9"
+                      data-testid="StarIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      <div
-                        class="ant-skeleton-content"
-                      >
-                        <h3
-                          class="ant-skeleton-title"
-                          style="width: 38%;"
-                        />
-                        <ul
-                          class="ant-skeleton-paragraph"
-                        >
-                          <li />
-                          <li />
-                          <li
-                            style="width: 61%;"
-                          />
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                      <path
+                        d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                      />
+                    </svg>
+                     ( 
+                     )
+                  </span>
                 </div>
-              </div>
-            </div>
-            <div
-              class="ant-card-body"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="width: 38%;"
-                  />
-                  <ul
-                    class="ant-skeleton-paragraph"
-                  >
-                    <li />
-                    <li />
-                    <li
-                      style="width: 61%;"
-                    />
-                  </ul>
-                </div>
-              </div>
+              </span>
             </div>
           </div>
+          <span
+            class="emotion-10"
+            data-testid="text"
+          >
+            default
+          </span>
         </div>
       </div>
     </div>

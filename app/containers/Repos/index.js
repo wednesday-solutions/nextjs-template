@@ -7,10 +7,11 @@ import Recommended from '@app/components/Recommended';
 import { Container } from '@app/components/styled';
 import ErrorState from '@components/ErrorState';
 import RepoList from '@components/RepoList/index';
-import { CustomCard, YouAreAwesome } from '@components/styled/repos';
+import { CustomCard, YouAreAwesome, StyledOutlinedInput } from '@components/styled/repos';
 import T from '@components/Text';
 import { fonts } from '@themes';
-import { Divider, Input, Row } from 'antd';
+import { InputAdornment, IconButton, Divider, Box, CardHeader, CardContent } from '@mui/material';
+import { Search as SearchIcon } from '@mui/icons-material';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
@@ -20,7 +21,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectSaga from '@utils/injectSaga';
 import { createStructuredSelector } from 'reselect';
-
 import { reposActionCreators } from './reducer';
 import saga from './saga';
 import { selectReposData, selectReposError, selectReposSearchKey } from './selectors';
@@ -41,9 +41,13 @@ export function Repos({
     }
   }, []);
 
+  const searchRepos = (rName) => {
+    dispatchGetGithubRepos(rName);
+  };
+
   const handleOnChange = debounce((rName) => {
     if (!isEmpty(rName)) {
-      dispatchGetGithubRepos(rName);
+      searchRepos(rName);
     } else {
       dispatchClearGithubRepos();
     }
@@ -58,26 +62,47 @@ export function Repos({
         alignSelf: 'center'
       }}
     >
-      <Row>
+      <Box sx={{ display: 'flex' }}>
         <T id="recommended" styles={fonts.style.subheading()} />
-      </Row>
-      <Row justify="space-between">
+      </Box>
+      <Box sx={{ display: 'flex', width: '100%' }}>
         <Recommended recommendations={recommendations} />
         <YouAreAwesome href="https://www.iamawesome.com/">
           <T id="you_are_awesome" />
         </YouAreAwesome>
-      </Row>
-      <Divider />
-      <CustomCard title={intl.formatMessage({ id: 'repo_search' })} maxwidth={500}>
-        <T marginBottom={10} id="get_repo_details" />
-        <Input.Search
-          data-testid="search-bar"
-          defaultValue={searchKey}
-          type="text"
-          onChange={(evt) => handleOnChange(evt.target.value)}
-          onSearch={(searchText) => handleOnChange(searchText)}
-        />
-      </CustomCard>
+      </Box>
+      <Divider sx={{ marginBottom: '1.25rem' }} />
+      <Box>
+        <CustomCard variant="outlined" padding="0" sx={{ marginTop: '1.25rem' }}>
+          <CardHeader
+            title={intl.formatMessage({ id: 'repo_search' })}
+            titleTypographyProps={{ fontSize: '1.25rem' }}
+            sx={{ padding: '1.25rem' }}
+          />
+          <Divider />
+          <CardContent sx={{ padding: '1.25rem' }}>
+            <T marginBottom={10} id="get_repo_details" />
+            <StyledOutlinedInput
+              inputProps={{ 'data-testid': 'search-bar' }}
+              onChange={(event) => handleOnChange(event.target.value)}
+              fullWidth
+              defaultValue={searchKey}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    data-testid="search-icon"
+                    aria-label="search repos"
+                    type="button"
+                    onClick={() => searchRepos(searchKey)}
+                  >
+                    <SearchIcon />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </CardContent>
+        </CustomCard>
+      </Box>
       <RepoList reposData={repos} loading={loading} repoName={searchKey} />
       <ErrorState reposData={repos} loading={loading} reposError={error} />
     </Container>
@@ -103,7 +128,8 @@ Repos.propTypes = {
 
 Repos.defaultProps = {
   padding: 20,
-  maxwidth: 500
+  maxwidth: 500,
+  loading: false
 };
 const mapStateToProps = createStructuredSelector({
   repos: selectReposData(),

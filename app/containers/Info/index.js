@@ -8,7 +8,7 @@ import fonts from '@app/themes/fonts';
 import injectSaga from '@app/utils/injectSaga';
 import { Container } from '@components/styled';
 import Title from '@components/Title';
-import { Card, Col, Row, Skeleton } from 'antd';
+import { Skeleton, Box, CardHeader, Card } from '@mui/material';
 import isEmpty from 'lodash/isEmpty';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -17,7 +17,7 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-
+import If from '@components/If';
 import { infoCreators } from './reducer';
 import saga from './saga';
 import { selectInfoData, selectInfoLoading } from './selectors';
@@ -34,24 +34,33 @@ export function Info({ details, params, loading, dispatchRequestInfo, fallBackDe
 
   const shouldLoad = loading || isEmpty({ ...fallBackDetails, ...details });
 
+  const renderSkeleton = () => {
+    return (
+      <>
+        <Skeleton data-testid="skeleton" animation="wave" variant="text" height={40} />
+        <Skeleton data-testid="skeleton" animation="wave" variant="text" height={40} />
+        <Skeleton data-testid="skeleton" animation="wave" variant="text" height={40} />
+      </>
+    );
+  };
+
   return (
-    <Row justify="center" align="middle" style={{ height: '100vh' }} flex="1 1 90%">
-      <Col>
-        <Container style={{ minWidth: '30rem' }} padding={20}>
-          <Card
+    <Box sx={{ justifyContent: 'center', alignItems: 'center', height: '100vh' }} data-testid="title">
+      <Container style={{ minWidth: '30rem' }} padding={20}>
+        <Card>
+          <CardHeader
             title={React.createElement(Title, {
               name,
               loading: shouldLoad,
               stargazersCount
             })}
-          >
-            <Skeleton loading={shouldLoad} active>
-              <Text styles={fonts.style.subheading()}>{description}</Text>
-            </Skeleton>
-          </Card>
-        </Container>
-      </Col>
-    </Row>
+          />
+          <If condition={shouldLoad} otherwise={renderSkeleton()}>
+            <Text styles={fonts.style.subheading()}>{description}</Text>
+          </If>
+        </Card>
+      </Container>
+    </Box>
   );
 }
 

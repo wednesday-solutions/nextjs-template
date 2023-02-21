@@ -10,14 +10,22 @@ module.exports = {
     'jest/globals': true
   },
   extends: ['eslint:recommended', 'prettier', 'plugin:import/recommended', 'next'],
-  plugins: ['prettier', 'jest'],
+  plugins: ['prettier', 'jest', '@emotion'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
     'import/no-webpack-loader-syntax': 0,
     'react/display-name': 0,
     'react/react-in-jsx-scope': 'off',
     curly: ['error', 'all'],
-    'no-console': ['error', { allow: ['error'] }]
+    'no-console': ['error', { allow: ['error'] }],
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['@mui/*/*/*']
+      }
+    ],
+    '@emotion/jsx-import': 'error',
+    '@emotion/pkg-renaming': 'error'
   },
   globals: {
     GLOBAL: false,
