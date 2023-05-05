@@ -1,7 +1,9 @@
 name: Next.js Template CI
 on:
   pull_request:
-    branches: [master]
+    branches:
+      - master
+
 jobs:
   build-and-test:
     name: Build & Test
@@ -10,7 +12,7 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -29,5 +31,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           threshold: 80
           package-manager: yarn
+          
       - name: Build
         run: yarn build
