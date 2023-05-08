@@ -58,5 +58,5 @@ jobs:
         if: github.ref == 'refs/heads/master'
         uses: chetan/invalidate-cloudfront-action@master
         env:
-          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION_ID }}
           PATHS: '/*'
