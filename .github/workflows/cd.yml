@@ -1,7 +1,7 @@
 name: Next.js Template CD
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
