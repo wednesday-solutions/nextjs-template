@@ -1,4 +1,4 @@
-name: Next Template CD
+name: Next.js Template CD
 
 on:
   push:
