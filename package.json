@@ -25,8 +25,6 @@
     "test:staged": "jest --findRelatedTests",
     "test:watch": "NODE_ENV=test jest --watchAll",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "predeploy": "yarn build:prod",
-    "deploy": "gh-pages -d out",
     "generate": "react-generate"
   },
   "lint-staged": {
