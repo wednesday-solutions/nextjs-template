@@ -14,7 +14,7 @@ import { Divider, Input, Row } from 'antd';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -24,10 +24,11 @@ import { createStructuredSelector } from 'reselect';
 import { reposActionCreators } from './reducer';
 import saga from './saga';
 import { selectReposData, selectReposError, selectReposSearchKey } from './selectors';
+import useGetRepos from './hooks/useGetRepos';
+import useReposState from './useReposState';
 
 export function Repos({
   intl,
-  repos,
   error,
   loading,
   searchKey,
@@ -35,6 +36,12 @@ export function Repos({
   dispatchGetGithubRepos,
   dispatchClearGithubRepos
 }) {
+  const [repoName, setRepoName] = useState('');
+
+  const { isLoading: repoLoading } = useGetRepos(repoName);
+
+  const repos = useReposState((state) => state.repos);
+
   useEffect(() => {
     if (repos && !repos?.items?.length) {
       dispatchGetGithubRepos(searchKey);
@@ -43,7 +50,7 @@ export function Repos({
 
   const handleOnChange = debounce((rName) => {
     if (!isEmpty(rName)) {
-      dispatchGetGithubRepos(rName);
+      setRepoName(rName);
     } else {
       dispatchClearGithubRepos();
     }
@@ -78,7 +85,7 @@ export function Repos({
           onSearch={(searchText) => handleOnChange(searchText)}
         />
       </CustomCard>
-      <RepoList reposData={repos} loading={loading} repoName={searchKey} />
+      <RepoList reposData={repos} loading={repoLoading} repoName={searchKey} />
       <ErrorState reposData={repos} loading={loading} reposError={error} />
     </Container>
   );

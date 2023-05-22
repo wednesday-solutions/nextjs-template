@@ -12,5 +12,5 @@ export const getReccomendations = async () => {
     const recommendations = ['react-floki', 'nextjs-template'];
     return response.data.filter(({ name }) => recommendations.includes(name)).map(({ id, name }) => ({ id, name }));
   };
-  return getData(res);
+  return getData(res);  
 };
