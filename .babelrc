@@ -2,11 +2,49 @@
   "presets": ["next/babel"],
   "env": {
     "development": {
-      "plugins": [["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]],
+      "plugins": [
+        [
+          "babel-plugin-import",
+          {
+            "libraryName": "@mui/material",
+            "libraryDirectory": "",
+            "camel2DashComponentName": false
+          },
+          "core"
+        ],
+        [
+          "babel-plugin-import",
+          {
+            "libraryName": "@mui/icons-material",
+            "libraryDirectory": "",
+            "camel2DashComponentName": false
+          },
+          "icons"
+        ]
+      ],
       "presets": ["next/babel"]
     },
     "production": {
-      "plugins": [["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]],
+      "plugins": [
+        [
+          "babel-plugin-import",
+          {
+            "libraryName": "@mui/material",
+            "libraryDirectory": "",
+            "camel2DashComponentName": false
+          },
+          "core"
+        ],
+        [
+          "babel-plugin-import",
+          {
+            "libraryName": "@mui/icons-material",
+            "libraryDirectory": "",
+            "camel2DashComponentName": false
+          },
+          "icons"
+        ]
+      ],
       "presets": [
         [
           "next/babel",
@@ -21,5 +59,24 @@
       ]
     }
   },
-  "plugins": [["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]]
+  "plugins": [
+    [
+      "babel-plugin-import",
+      {
+        "libraryName": "@mui/material",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "core"
+    ],
+    [
+      "babel-plugin-import",
+      {
+        "libraryName": "@mui/icons-material",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "icons"
+    ]
+  ]
 }

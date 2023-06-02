@@ -5,22 +5,22 @@
  */
 
 import React from 'react';
-import { Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { ClickableTags } from '../styled/repos';
+import { Box } from '@mui/material';
 
 const Recommended = (props) => {
   const { recommendations } = props;
   const router = useRouter();
   return (
-    <Row data-testid="recommended">
+    <Box sx={{ display: 'flex', gap: '10px' }} data-testid="recommended">
       {recommendations.map(({ id, name }) => (
-        <Col key={id} onClick={() => router.push(`/info/${name}`)}>
-          <ClickableTags>{name}</ClickableTags>
-        </Col>
+        <div key={id} onClick={() => router.push(`/info/${name}`)}>
+          <ClickableTags label={name} size="small" clickable />
+        </div>
       ))}
-    </Row>
+    </Box>
   );
 };
 

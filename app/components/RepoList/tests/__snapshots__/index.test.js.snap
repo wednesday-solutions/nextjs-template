@@ -2,41 +2,18 @@
 
 exports[`<RepoList /> should render and match the snapshot 1`] = `
 .emotion-0.emotion-0 {
-  margin: 20px 0;
+  margin: 1.25rem 0;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
 }
 
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered emotion-0"
+      class="emotion-0"
       data-testid="repo-list"
-    >
-      <div
-        class="ant-card-body"
-      >
-        <div
-          class="ant-skeleton ant-skeleton-active"
-        >
-          <div
-            class="ant-skeleton-content"
-          >
-            <h3
-              class="ant-skeleton-title"
-              style="width: 38%;"
-            />
-            <ul
-              class="ant-skeleton-paragraph"
-            >
-              <li />
-              <li />
-              <li
-                style="width: 61%;"
-              />
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    />
   </div>
 </body>
 `;

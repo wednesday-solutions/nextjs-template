@@ -40,7 +40,7 @@ An enterprise Next.js template application showcasing - Testing strategies, Glob
 - Side Effects using `redux-saga`
 - API calls using `api-sauce`
 - Styling using emotion
-- Reusing components from Ant design
+- Reusing components from Material UI
 - Translations using `react-intl`
 - Custom enviornments using `emv-cmd`
 - Image loading using `next-images`
@@ -91,9 +91,9 @@ An enterprise Next.js template application showcasing - Testing strategies, Glob
   - [pages/index.js](pages/index.js)
   - [pages/\_document.js](pages/_document.js)
 
-## Using antd as the component library
+## Using Material UI as the component library
 
-- Reusing components from [Ant design](https://ant.design)
+- Reusing components from [Material UI](https://mui.com)
 
   Take a look at the following files
 

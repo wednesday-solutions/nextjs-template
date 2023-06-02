@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import T from '@components/Text';
 import { CustomCard } from '../styled/repos';
+import { CardHeader } from '@mui/material';
 
 const ErrorState = (props) => {
   const { intl, reposError, loading, reposData } = props;
@@ -26,11 +27,12 @@ const ErrorState = (props) => {
   return (
     !loading &&
     repoError && (
-      <CustomCard
-        color={reposError ? 'red' : 'grey'}
-        title={intl.formatMessage({ id: 'repo_list' })}
-        data-testid="error-state"
-      >
+      <CustomCard color={reposError ? 'red' : 'grey'} data-testid="error-state">
+        <CardHeader
+          title={intl.formatMessage({ id: 'repo_list' })}
+          titleTypographyProps={{ fontSize: '1.25rem' }}
+          sx={{ padding: '1.25rem' }}
+        />
         <T id={repoError} />
       </CustomCard>
     )
@@ -40,13 +42,11 @@ const ErrorState = (props) => {
 ErrorState.propTypes = {
   intl: PropTypes.any,
   loading: PropTypes.bool.isRequired,
-  reposData: PropTypes.arrayOf(
-    PropTypes.shape({
-      totalCount: PropTypes.number,
-      incompleteResults: PropTypes.bool,
-      items: PropTypes.array
-    })
-  ),
+  reposData: PropTypes.shape({
+    totalCount: PropTypes.number,
+    incompleteResults: PropTypes.bool,
+    items: PropTypes.array
+  }),
   reposError: PropTypes.object,
   repoName: PropTypes.string,
   recommendations: PropTypes.arrayOf(

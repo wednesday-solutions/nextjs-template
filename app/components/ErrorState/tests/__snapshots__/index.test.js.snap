@@ -1,46 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorState /> should render and match the snapshot 1`] = `
+.emotion-0 {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
 .emotion-0.emotion-0 {
-  margin: 20px 0;
+  margin: 1rem 0;
+  padding: 1rem;
   color: grey;
   color: grey;
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 16px;
+  padding: 1.25rem;
+}
+
+.emotion-2 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.334;
+  letter-spacing: 0em;
+  display: block;
+  font-size: 1.25rem;
+}
+
+.emotion-4 {
   white-space: pre-line;
 }
 
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered emotion-0"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-0"
       color="grey"
       data-testid="error-state"
     >
       <div
-        class="ant-card-head"
+        class="MuiCardHeader-root emotion-1"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="MuiCardHeader-content emotion-2"
         >
-          <div
-            class="ant-card-head-title"
+          <span
+            class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title emotion-3"
           >
             Repository List
-          </div>
+          </span>
         </div>
       </div>
-      <div
-        class="ant-card-body"
+      <span
+        class="emotion-4"
+        data-testid="text"
       >
-        <span
-          class="emotion-1"
-          data-testid="text"
-        >
-          Search for a repository by entering it's name in the search box
-        </span>
-      </div>
+        Search for a repository by entering it's name in the search box
+      </span>
     </div>
   </div>
 </body>
