@@ -3,11 +3,11 @@
     "target": "es2017",
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
-    // "moduleResolution": "node",
     "paths": {
       "@app/*": ["./app/*"],
       "@components/*": ["./app/components/*"],
       "@themes/*": ["./app/themes/*"],
+      "@themes": ["./app/themes/index"],
       "@utils/*": ["./app/utils/*"],
       "@images/*": ["./app/images/*"],
       "@store/*": ["./app/store/*"],
