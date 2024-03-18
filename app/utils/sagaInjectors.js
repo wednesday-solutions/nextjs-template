@@ -1,6 +1,5 @@
 import invariant from 'invariant';
 import { isEmpty, isFunction, isString, conformsTo } from 'lodash';
-
 import checkStore from './checkStore';
 import { DAEMON, ONCE_TILL_UNMOUNT, RESTART_ON_REMOUNT } from './constants';
 
@@ -17,6 +16,36 @@ const checkDescriptor = (descriptor) => {
   invariant(conformsTo(descriptor, shape), '(app/utils...) injectSaga: Expected a valid saga descriptor');
 };
 
+function shouldInjectSaga(store, key, newDescriptor) {
+  const hasSaga = Reflect.has(store.injectedSagas, key);
+
+  if (!hasSaga) {
+    return true;
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    return shouldCancelOldSaga(store, key, newDescriptor);
+  }
+
+  return newDescriptor.mode !== DAEMON && newDescriptor.mode !== ONCE_TILL_UNMOUNT;
+}
+
+function shouldCancelOldSaga(store, key, newDescriptor) {
+  const oldDescriptor = store.injectedSagas[key];
+  if (oldDescriptor.saga !== newDescriptor.saga) {
+    oldDescriptor.task.cancel();
+    return false;
+  }
+  return true;
+}
+
+function runSaga(store, { key, descriptor, args }) {
+  store.injectedSagas[key] = {
+    ...descriptor,
+    task: store.runSaga(descriptor.saga, args)
+  };
+}
+
 export function injectSagaFactory(store, isValid) {
   return function injectSaga(key, descriptor = {}, args) {
     if (!isValid) {
@@ -27,31 +56,18 @@ export function injectSagaFactory(store, isValid) {
       ...descriptor,
       mode: descriptor.mode || DAEMON
     };
-    const { saga, mode } = newDescriptor;
 
     checkKey(key);
     checkDescriptor(newDescriptor);
 
-    let hasSaga = Reflect.has(store.injectedSagas, key);
-
-    if (process.env.NODE_ENV !== 'production') {
-      const oldDescriptor = store.injectedSagas[key];
-      // enable hot reloading of daemon and once-till-unmount sagas
-      if (hasSaga && oldDescriptor.saga !== saga) {
-        oldDescriptor.task.cancel();
-        hasSaga = false;
-      }
-    }
-
-    if (!hasSaga || (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)) {
-      /* eslint-disable no-param-reassign */
-      store.injectedSagas[key] = {
-        ...newDescriptor,
-        task: store.runSaga(saga, args)
-      };
-      /* eslint-enable no-param-reassign */
+    if (shouldInjectSaga(store, key, newDescriptor)) {
+      runSaga(store, { key, descriptor: newDescriptor, args });
     }
   };
+}
+
+function cancelSaga(task) {
+  task.cancel();
 }
 
 export function ejectSagaFactory(store, isValid) {
@@ -65,11 +81,9 @@ export function ejectSagaFactory(store, isValid) {
     if (Reflect.has(store.injectedSagas, key)) {
       const descriptor = store.injectedSagas[key];
       if (descriptor.mode && descriptor.mode !== DAEMON) {
-        descriptor.task.cancel();
-        // Clean up in production; in development we need `descriptor.saga` for hot reloading
+        cancelSaga(descriptor.task);
         if (process.env.NODE_ENV === 'production') {
-          // Need some value to be able to detect `ONCE_TILL_UNMOUNT` sagas in `injectSaga`
-          store.injectedSagas[key] = 'done'; // eslint-disable-line no-param-reassign
+          store.injectedSagas[key] = 'done';
         }
       }
     }

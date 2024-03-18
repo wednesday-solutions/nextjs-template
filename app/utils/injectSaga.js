@@ -50,4 +50,4 @@ const useInjectSaga = ({ key, saga, mode }) => {
   }, []);
 };
 
-export { withSaga, useInjectSaga };
+export default { withSaga, useInjectSaga };
