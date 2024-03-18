@@ -19,7 +19,7 @@ const RepoList = (props) => {
 
   const items = get(reposData, 'items', []);
   const totalCount = get(reposData, 'totalCount', 0);
-  const BlockText = (props) => <T display="block" {...props} />;
+  const BlockText = (blockTextProps) => <T display="block" {...blockTextProps} />;
   return (
     <If condition={items.length !== 0 || loading}>
       <CustomCard data-testid="repo-list">

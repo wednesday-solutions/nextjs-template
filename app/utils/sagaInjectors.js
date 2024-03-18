@@ -70,6 +70,10 @@ function cancelSaga(task) {
   task.cancel();
 }
 
+function shouldCancelSaga(descriptor) {
+  return descriptor.mode && descriptor.mode !== DAEMON;
+}
+
 export function ejectSagaFactory(store, isValid) {
   return function ejectSaga(key) {
     if (!isValid) {
@@ -78,14 +82,17 @@ export function ejectSagaFactory(store, isValid) {
 
     checkKey(key);
 
-    if (Reflect.has(store.injectedSagas, key)) {
-      const descriptor = store.injectedSagas[key];
-      if (descriptor.mode && descriptor.mode !== DAEMON) {
-        cancelSaga(descriptor.task);
-        if (process.env.NODE_ENV === 'production') {
-          store.injectedSagas[key] = 'done';
-        }
-      }
+    if (!Reflect.has(store.injectedSagas, key)) {
+      return;
+    }
+
+    const descriptor = store.injectedSagas[key];
+    if (shouldCancelSaga(descriptor)) {
+      cancelSaga(descriptor.task);
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      store.injectedSagas[key] = 'done';
     }
   };
 }
