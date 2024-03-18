@@ -36,9 +36,8 @@ export const setDeviceType = (width = document.body.clientWidth) => {
     return 'mobile';
   } else if (width >= screenSizes.tablet && width < screenSizes.desktop) {
     return 'tablet';
-  } else {
-    return 'desktop';
   }
+  return 'desktop';
 };
 
 export const getDeviceType = (device) => (device || setDeviceType()).toUpperCase();

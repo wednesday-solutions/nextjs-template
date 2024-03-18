@@ -3994,6 +3994,10 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
+"eslint-plugin-immutable@github:alichherawalla/eslint-plugin-immutable.git#6af48f5498ca1912b618c16bceab8c5464a92f1c":
+  version "1.0.0"
+  resolved "https://codeload.github.com/alichherawalla/eslint-plugin-immutable/tar.gz/6af48f5498ca1912b618c16bceab8c5464a92f1c"
+
 eslint-plugin-import@2.17.2:
   version "2.17.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.17.2.tgz#d227d5c6dc67eca71eb590d2bb62fb38d86e9fcb"

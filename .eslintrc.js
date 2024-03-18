@@ -9,15 +9,25 @@ module.exports = {
     es2021: true,
     'jest/globals': true
   },
+  plugins: ['jest', 'immutable', 'prettier'],
   extends: ['eslint:recommended', 'prettier', 'plugin:import/recommended', 'next'],
-  plugins: ['prettier', 'jest'],
   rules: {
     'prettier/prettier': ['error', prettierOptions],
     'import/no-webpack-loader-syntax': 0,
     'react/display-name': 0,
     'react/react-in-jsx-scope': 'off',
     curly: ['error', 'all'],
-    'no-console': ['error', { allow: ['error'] }]
+    'no-console': ['error', { allow: ['error'] }],
+    'max-lines': ['error', { max: 300, skipBlankLines: true, skipComments: true }],
+    'max-lines-per-function': ['error', 250],
+    'no-else-return': 'error',
+    'max-params': ['error', 3],
+    'no-shadow': 'error',
+    complexity: ['error', 5],
+    'no-empty': 'error',
+    'import/order': ['error', { groups: [['builtin', 'external', 'internal', 'parent', 'sibling', 'index']] }],
+    'immutable/no-this': 2,
+    'eslint-comments/no-use': 0
   },
   globals: {
     GLOBAL: false,

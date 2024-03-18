@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import { ReactReduxContext } from 'react-redux';
-
 import getInjectors from './sagaInjectors';
 
 /**
@@ -16,39 +15,34 @@ import getInjectors from './sagaInjectors';
  *   - constants.ONCE_TILL_UNMOUNT — behaves like 'RESTART_ON_REMOUNT' but never runs it again.
  *
  */
-export default ({ key, saga, mode }) =>
+const withSaga =
+  ({ key, saga, mode }) =>
   (WrappedComponent) => {
-    class InjectSaga extends React.Component {
-      static WrappedComponent = WrappedComponent;
+    const InjectSaga = (props) => {
+      const { store } = useContext(ReactReduxContext);
+      const injectors = getInjectors(store);
 
-      static contextType = ReactReduxContext;
+      useEffect(() => {
+        injectors.injectSaga(key, { saga, mode }, props);
+        return () => {
+          injectors.ejectSaga(key);
+        };
+      }, []);
 
-      static displayName = `withSaga(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+      return <WrappedComponent {...props} />;
+    };
 
-      constructor(props, context) {
-        super(props, context);
-
-        this.injectors = getInjectors(context.store);
-
-        this.injectors.injectSaga(key, { saga, mode }, this.props);
-      }
-
-      componentWillUnmount() {
-        this.injectors.ejectSaga(key);
-      }
-
-      render() {
-        return <WrappedComponent {...this.props} />;
-      }
-    }
+    InjectSaga.WrappedComponent = WrappedComponent;
+    InjectSaga.displayName = `withSaga(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
 
     return hoistNonReactStatics(InjectSaga, WrappedComponent);
   };
 
 const useInjectSaga = ({ key, saga, mode }) => {
-  const context = React.useContext(ReactReduxContext);
-  React.useEffect(() => {
-    const injectors = getInjectors(context.store);
+  const { store } = useContext(ReactReduxContext);
+  const injectors = getInjectors(store);
+
+  useEffect(() => {
     injectors.injectSaga(key, { saga, mode });
     return () => {
       injectors.ejectSaga(key);
@@ -56,4 +50,4 @@ const useInjectSaga = ({ key, saga, mode }) => {
   }, []);
 };
 
-export { useInjectSaga };
+export { withSaga, useInjectSaga };
