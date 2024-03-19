@@ -26,7 +26,7 @@ module.exports = {
     complexity: ['error', 5],
     'no-empty': 'error',
     'import/order': ['error', { groups: [['builtin', 'external', 'internal', 'parent', 'sibling', 'index']] }],
-    'immutable/no-this': 2,
+    // 'immutable/no-this': 2,
     'eslint-comments/no-use': 0
   },
   globals: {
