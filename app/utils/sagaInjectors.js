@@ -17,6 +17,12 @@ const checkDescriptor = (descriptor) => {
   invariant(conformsTo(descriptor, shape), '(app/utils...) injectSaga: Expected a valid saga descriptor');
 };
 
+/**
+ * Validate the saga, mode and key
+ * @param {object} descriptor The saga descriptor
+ * @param {string} key The saga key
+ * @param {object} saga The saga
+ */
 export function injectSagaFactory(store, isValid) {
   const updateHasSagaInDevelopment = (hasSaga, key, saga) => {
     const oldDescriptor = store.injectedSagas[key];
@@ -66,7 +72,18 @@ export function injectSagaFactory(store, isValid) {
   };
 }
 
+/**
+ * Eject the saga
+ * @param {string} key The saga key
+ * @param {object} store The redux store
+ * @param {boolean} isValid If the store is valid
+ */
 export function ejectSagaFactory(store, isValid) {
+  /**
+   * Clean up the store
+   * @param {string} key The saga key
+   * @returns {void}
+   */
   function updateStoreSaga(key) {
     // Clean up in production; in development we need `descriptor.saga` for hot reloading
     if (process.env.NODE_ENV === 'production') {
@@ -94,6 +111,10 @@ export function ejectSagaFactory(store, isValid) {
   };
 }
 
+/**
+ * Get the injectors
+ * @param {object} store The redux store
+ */
 export default function getInjectors(store) {
   checkStore(store);
   return {

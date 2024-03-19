@@ -10,6 +10,9 @@ import info from './containers/Info/reducer';
 
 enableAllPlugins();
 
+/**
+ * Merges the main reducer with the router state and dynamically injected reducers
+ */
 export default function createReducer(injectedReducer = {}) {
   const rootReducer = combineReducers({
     ...injectedReducer,

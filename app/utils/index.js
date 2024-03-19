@@ -1,6 +1,11 @@
 import pickBy from 'lodash/pickBy';
 import { screenSizes } from '@themes/media';
 
+/**
+ * Get query string value
+ * @param {array} keys - The keys to get the value of
+ * @returns {object} - The query string value
+ */
 export function getQueryStringValue(keys) {
   const queryString = {};
   try {

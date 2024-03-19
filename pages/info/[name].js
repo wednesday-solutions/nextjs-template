@@ -6,6 +6,15 @@ const RepoInfo = ({ details }) => <Info details={details} />;
 
 export default RepoInfo;
 
+/**
+ * Get the details of the repo
+ * @param {object} props The component props
+ * @param {object} props.params The route parameters
+ * @returns {object} The details of the repo
+ * @returns {string} The details.name The name of the repo
+ * @returns {string} The details.description The description of the repo
+ * @returns {number} The details.stargazersCount The number of stargazers
+ */
 export async function getStaticProps(props) {
   const {
     params: { name }
@@ -18,6 +27,10 @@ export async function getStaticProps(props) {
   };
 }
 
+/**
+ * Get the list of recommendations
+ * @returns {object} The list of recommendations
+ */
 export async function getStaticPaths() {
   const recommendations = await getReccomendations();
   // * param value should be a string

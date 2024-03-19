@@ -25,6 +25,19 @@ import { reposActionCreators } from './reducer';
 import saga from './saga';
 import { selectReposData, selectReposError, selectReposSearchKey } from './selectors';
 
+/**
+ * The Repos container
+ * @param {object} props The component props
+ * @param {object} props.intl The intl object
+ * @param {string} props.searchKey The search key
+ * @param {object} props.repos The repos data
+ * @param {string} props.error The error message
+ * @param {boolean} props.loading Whether the data is loading
+ * @param {object} props.recommendations The list of recommendations
+ * @param {function} props.dispatchGetGithubRepos The function to get the github repos
+ * @param {function} props.dispatchClearGithubRepos The function to clear the github repos
+ * @returns {JSX.Element} The Repos container
+ */
 export function Repos({
   intl,
   repos,
@@ -111,6 +124,11 @@ const mapStateToProps = createStructuredSelector({
   searchKey: selectReposSearchKey()
 });
 
+/**
+ * The mapDispatchToProps
+ * @param {function} dispatch The dispatch function
+ * @returns {object} The props
+ */
 function mapDispatchToProps(dispatch) {
   const { requestGetGithubRepos, clearGithubRepos } = reposActionCreators;
   return {

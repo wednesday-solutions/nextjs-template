@@ -8,6 +8,12 @@ import { createWrapper } from 'next-redux-wrapper';
 
 import createReducer from './reducers';
 
+/**
+ *
+ * @param {object} initialState The initial state
+ * @returns {object} The store
+ *
+ */
 export default function configureStore(initialState = {}) {
   let composeEnhancers = compose;
   const reduxSagaMonitorOptions = {};

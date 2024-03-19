@@ -22,6 +22,16 @@ import { infoCreators } from './reducer';
 import saga from './saga';
 import { selectInfoData, selectInfoLoading } from './selectors';
 
+/**
+ * The Info container
+ * @param {object} props The component props
+ * @param {object} props.details The details of the repo
+ * @param {object} props.params The params from the route
+ * @param {boolean} props.loading Whether the data is loading
+ * @param {function} props.dispatchRequestInfo The function to request the info
+ * @param {object} props.fallBackDetails The details to fall back on
+ * @returns {JSX.Element} The Info container
+ */
 export function Info({ details, params, loading, dispatchRequestInfo, fallBackDetails }) {
   const router = useRouter();
   const { query } = router;
@@ -74,6 +84,11 @@ const mapStateToProps = createStructuredSelector({
   fallBackDetails: selectInfoData()
 });
 
+/**
+ * The mapDispatchToProps
+ * @param {function} dispatch The dispatch function
+ * @returns {object} The props
+ */
 function mapDispatchToProps(dispatch) {
   return {
     dispatchRequestInfo: (repo, owner) => dispatch(infoCreators.requestInfo(repo, owner))

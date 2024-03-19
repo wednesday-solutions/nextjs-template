@@ -3,6 +3,13 @@ import { getRepo } from '@services/info';
 import { ERRORS } from '@app/utils/constants';
 import { infoTypes, infoCreators, INFO_PAYLOAD } from './reducer';
 
+/**
+ * Request info from the API
+ * @param {object} action
+ * @param {string} action[INFO_PAYLOAD.REPO] - The name of the repository
+ * @param {string} action[INFO_PAYLOAD.OWNER] - The owner of the repository
+ * @returns {object} - The response from the API
+ */
 export function* requestInfo(action) {
   try {
     if (!action[INFO_PAYLOAD.REPO] || !action[INFO_PAYLOAD.OWNER]) {
@@ -16,6 +23,10 @@ export function* requestInfo(action) {
   }
 }
 
+/**
+ * The root of the info saga
+ * @returns {void}
+ */
 export default function* appSaga() {
   yield takeLatest(infoTypes.REQUEST_INFO, requestInfo);
 }
