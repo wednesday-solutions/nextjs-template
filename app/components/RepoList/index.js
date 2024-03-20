@@ -10,8 +10,8 @@ import { Skeleton } from 'antd';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import T from '@components/Text';
-import { CustomCard } from '../styled/repos';
-import If from '../If/index';
+import If from '@components/If';
+import { CustomCard } from '@components/styled/repos';
 
 const RepoList = (props) => {
   const { reposData, loading, repoName } = props;

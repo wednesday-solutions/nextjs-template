@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Repos from '@app/containers/Repos/index';
+import Repos from '@app/containers/Repos';
 import { getReccomendations } from '@services/root';
 
 /**

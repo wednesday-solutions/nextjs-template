@@ -6,7 +6,7 @@
 import Recommended from '@app/components/Recommended';
 import { Container } from '@app/components/styled';
 import ErrorState from '@components/ErrorState';
-import RepoList from '@components/RepoList/index';
+import RepoList from '@components/RepoList';
 import { CustomCard, YouAreAwesome } from '@components/styled/repos';
 import T from '@components/Text';
 import { fonts } from '@themes';

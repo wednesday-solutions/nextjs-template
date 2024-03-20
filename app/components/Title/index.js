@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Skeleton } from 'antd';
 import { StarOutlined } from '@ant-design/icons';
-import Text from '@app/components/Text/index';
+import Text from '@app/components/Text';
 import fonts from '@app/themes/fonts';
 
 /**

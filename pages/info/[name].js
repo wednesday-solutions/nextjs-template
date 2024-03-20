@@ -1,6 +1,6 @@
 import { getRepo } from '@app/services/info';
 import { getReccomendations } from '@services/root';
-import Info from '@app/containers/Info/index';
+import Info from '@app/containers/Info';
 
 const RepoInfo = ({ details }) => <Info details={details} />;
 
