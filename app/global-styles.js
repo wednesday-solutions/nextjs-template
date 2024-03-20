@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { colors } from './themes/index';
+import { colors } from '@themes';
 
 const globalStyle = css`
   html,

@@ -17,7 +17,36 @@ const checkDescriptor = (descriptor) => {
   invariant(conformsTo(descriptor, shape), '(app/utils...) injectSaga: Expected a valid saga descriptor');
 };
 
+/**
+ * Validate the saga, mode and key
+ * @param {object} descriptor The saga descriptor
+ * @param {string} key The saga key
+ * @param {object} saga The saga
+ */
 export function injectSagaFactory(store, isValid) {
+  const updateHasSagaInDevelopment = (hasSaga, key, saga) => {
+    const oldDescriptor = store.injectedSagas[key];
+    // enable hot reloading of daemon and once-till-unmount sagas
+    if (hasSaga && oldDescriptor.saga !== saga) {
+      oldDescriptor.task.cancel();
+      return false;
+    }
+    return hasSaga;
+  };
+
+  const updateStoreInjectors = (newDescriptor, saga, key, args) => {
+    store.injectedSagas[key] = {
+      ...newDescriptor,
+      task: store.runSaga(saga, args)
+    };
+  };
+
+  const checkAndUpdateStoreInjectors = (hasSaga, key, newDescriptor, args) => {
+    if (!hasSaga || (hasSaga && newDescriptor.mode !== DAEMON && newDescriptor.mode !== ONCE_TILL_UNMOUNT)) {
+      updateStoreInjectors(newDescriptor, newDescriptor.saga, key, args);
+    }
+  };
+
   return function injectSaga(key, descriptor = {}, args) {
     if (!isValid) {
       checkStore(store);
@@ -27,7 +56,6 @@ export function injectSagaFactory(store, isValid) {
       ...descriptor,
       mode: descriptor.mode || DAEMON
     };
-    const { saga, mode } = newDescriptor;
 
     checkKey(key);
     checkDescriptor(newDescriptor);
@@ -35,26 +63,35 @@ export function injectSagaFactory(store, isValid) {
     let hasSaga = Reflect.has(store.injectedSagas, key);
 
     if (process.env.NODE_ENV !== 'production') {
-      const oldDescriptor = store.injectedSagas[key];
-      // enable hot reloading of daemon and once-till-unmount sagas
-      if (hasSaga && oldDescriptor.saga !== saga) {
-        oldDescriptor.task.cancel();
-        hasSaga = false;
-      }
+      hasSaga = updateHasSagaInDevelopment(hasSaga, key, newDescriptor.saga);
     }
 
-    if (!hasSaga || (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)) {
-      /* eslint-disable no-param-reassign */
-      store.injectedSagas[key] = {
-        ...newDescriptor,
-        task: store.runSaga(saga, args)
-      };
-      /* eslint-enable no-param-reassign */
-    }
+    checkAndUpdateStoreInjectors(hasSaga, key, newDescriptor, args);
+
+    return key;
   };
 }
 
+/**
+ * Eject the saga
+ * @param {string} key The saga key
+ * @param {object} store The redux store
+ * @param {boolean} isValid If the store is valid
+ */
 export function ejectSagaFactory(store, isValid) {
+  /**
+   * Clean up the store
+   * @param {string} key The saga key
+   * @returns {void}
+   */
+  function updateStoreSaga(key) {
+    // Clean up in production; in development we need `descriptor.saga` for hot reloading
+    if (process.env.NODE_ENV === 'production') {
+      // Need some value to be able to detect `ONCE_TILL_UNMOUNT` sagas in `injectSaga`
+      store.injectedSagas[key] = 'done'; // eslint-disable-line no-param-reassign
+    }
+  }
+
   return function ejectSaga(key) {
     if (!isValid) {
       checkStore(store);
@@ -64,18 +101,20 @@ export function ejectSagaFactory(store, isValid) {
 
     if (Reflect.has(store.injectedSagas, key)) {
       const descriptor = store.injectedSagas[key];
-      if (descriptor.mode && descriptor.mode !== DAEMON) {
-        descriptor.task.cancel();
-        // Clean up in production; in development we need `descriptor.saga` for hot reloading
-        if (process.env.NODE_ENV === 'production') {
-          // Need some value to be able to detect `ONCE_TILL_UNMOUNT` sagas in `injectSaga`
-          store.injectedSagas[key] = 'done'; // eslint-disable-line no-param-reassign
-        }
+      if (descriptor.mode && descriptor.mode === DAEMON) {
+        return;
       }
+
+      descriptor.task.cancel();
+      updateStoreSaga(key);
     }
   };
 }
 
+/**
+ * Get the injectors
+ * @param {object} store The redux store
+ */
 export default function getInjectors(store) {
   checkStore(store);
   return {

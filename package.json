@@ -102,6 +102,7 @@
     "eslint-config-standard": "17.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-webpack": "0.13.2",
+    "eslint-plugin-immutable": "github:alichherawalla/eslint-plugin-immutable.git#6af48f5498ca1912b618c16bceab8c5464a92f1c",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.4.5",
     "eslint-plugin-jsx-a11y": "^6.5.1",

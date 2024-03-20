@@ -15,6 +15,12 @@ const StyledClickable = styled.div`
     cursor: pointer;
   }
 `;
+
+/**
+ * A component that can be clicked
+ * @param {function} onClick - The function to call when the component is clicked
+ * @param {string} textId - The id of the text to display
+ */
 function Clickable({ onClick, textId }) {
   return (
     <StyledClickable data-testid="clickable" onClick={onClick}>

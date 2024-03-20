@@ -14,27 +14,32 @@ import { CustomCard } from '../styled/repos';
 
 const ErrorState = (props) => {
   const { intl, reposError, loading, reposData } = props;
-  let repoError;
-  if (reposError) {
-    repoError = reposError;
-  } else if (!get(reposData, 'totalCount', 0)) {
-    repoError = 'respo_search_default';
-  }
-  if (!loading && !repoError) {
+  const getRepoError = () => {
+    if (reposError) {
+      return reposError;
+    } else if (!get(reposData, 'totalCount', 0)) {
+      return 'respo_search_default';
+    }
     return null;
-  }
-  return (
-    !loading &&
-    repoError && (
-      <CustomCard
-        color={reposError ? 'red' : 'grey'}
-        title={intl.formatMessage({ id: 'repo_list' })}
-        data-testid="error-state"
-      >
-        <T id={repoError} />
-      </CustomCard>
-    )
-  );
+  };
+
+  const renderErrorCard = (repoError) => {
+    return (
+      !loading &&
+      repoError && (
+        <CustomCard
+          color={reposError ? 'red' : 'grey'}
+          title={intl.formatMessage({ id: 'repo_list' })}
+          data-testid="error-state"
+        >
+          <T id={repoError} />
+        </CustomCard>
+      )
+    );
+  };
+
+  const repoError = getRepoError();
+  return renderErrorCard(repoError);
 };
 
 ErrorState.propTypes = {

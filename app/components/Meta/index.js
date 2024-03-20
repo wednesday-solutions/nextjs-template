@@ -10,6 +10,12 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import favicon from '@images/favicon.ico';
 
+/**
+ * The Meta component
+ * @param {string} title - The title of the page
+ * @param {string} description - The description of the page
+ * @param {boolean} useTranslation - Whether to use translation for the title and description
+ */
 function Meta({ title, description, useTranslation }) {
   const intl = useIntl();
 

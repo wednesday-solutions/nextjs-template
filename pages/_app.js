@@ -1,5 +1,5 @@
+import React from 'react';
 import { IntlProvider } from 'react-intl';
-import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import colors from '@themes/colors';
 import globalStyle from '@app/global-styles';
@@ -12,27 +12,23 @@ const theme = {
   colors
 };
 
-class MyApp extends App {
-  static getInitialProps = async ({ Component, ctx }) => {
-    return {
-      pageProps: {
-        ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
-        pathname: ctx.pathname
-      }
-    };
-  };
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
+      <ThemeProvider theme={theme}>
+        <Global styles={globalStyle} />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </IntlProvider>
+  );
+};
 
-  render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
-        <ThemeProvider theme={theme}>
-          <Global style={globalStyle} />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </IntlProvider>
-    );
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
   }
-}
+  return { pageProps };
+};
 
 export default wrapper.withRedux(MyApp);

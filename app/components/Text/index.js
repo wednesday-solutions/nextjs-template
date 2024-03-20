@@ -17,6 +17,17 @@ const StyledText = styled.span`
   ${(props) => props.fontweight};
   ${(props) => props.styles};
 `;
+
+/**
+ * A component for displaying text
+ * @param {string} id - The id of the text to display
+ * @param {string} text - The text to display
+ * @param {object} values - The values to pass to the text
+ * @param {string} color - The color of the text
+ * @param {string} fontWeight - The font weight of the text
+ * @param {string} fontSize - The font size of the text
+ * @param {string} display - The display type of the text
+ */
 function Text({ id = 'default', text, values = {}, children, color, fontWeight, fontSize, ...props }) {
   return (
     <StyledText data-testid="text" color={color} fontweight={fontWeight} fontsize={fontSize} {...props}>
