@@ -28,7 +28,7 @@ jobs:
         run: yarn lint
 
       - name: Test and generate coverage report
-        uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
+        uses: artiomtr/jest-coverage-report-action@v2.3.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           threshold: 80
