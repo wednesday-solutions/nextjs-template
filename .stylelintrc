@@ -3,5 +3,24 @@
   "extends": [
     "stylelint-config-recommended",
     "stylelint-config-styled-components"
-  ]
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss",
+      "rules": {
+        "at-rule-no-unknown": null
+      }
+    },
+    {
+      "files": ["**/*.{js,ts}"],
+      "customSyntax": "@stylelint/postcss-css-in-js",
+      "rules": {
+        "at-rule-no-unknown": null
+      }
+    }
+  ],
+  "rules": {
+    "at-rule-no-unknown": null
+  }
 }
