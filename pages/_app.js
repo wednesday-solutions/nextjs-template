@@ -6,7 +6,7 @@ import globalStyle from '@app/global-styles';
 import { Global } from '@emotion/react';
 import { translationMessages, DEFAULT_LOCALE } from '@app/i18n';
 import { wrapper } from '@app/configureStore';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 
 const theme = {
   colors

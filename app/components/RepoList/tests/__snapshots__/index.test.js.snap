@@ -8,14 +8,14 @@ exports[`<RepoList /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered emotion-0"
+      class="ant-card ant-card-bordered emotion-0 emotion-1"
       data-testid="repo-list"
     >
       <div
         class="ant-card-body"
       >
         <div
-          class="ant-skeleton ant-skeleton-active"
+          class="ant-skeleton ant-skeleton-active emotion-1"
         >
           <div
             class="ant-skeleton-content"

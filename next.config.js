@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const withImages = require('next-images');
 const path = require('path');
 const withTM = require('next-transpile-modules')([
@@ -22,7 +23,7 @@ const constructAlias = (config) => {
 
 module.exports = withTM(
   withImages({
-    assetPrefix: process.env.BASE_PATH || '',
+    assetPrefix: process.env.BASE_PATH || undefined,
     basePath: process.env.BASE_PATH || '',
     trailingSlash: true,
     webpack(config) {
