@@ -539,7 +539,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.25.0, @babel/parser@npm:^7.25.6":
+"@babel/parser@npm:^7.25.0, @babel/parser@npm:^7.25.6, @babel/parser@npm:^7.8.3":
   version: 7.25.6
   resolution: "@babel/parser@npm:7.25.6"
   dependencies:
@@ -801,7 +801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.24.7, @babel/traverse@npm:^7.25.2":
+"@babel/traverse@npm:^7.24.7, @babel/traverse@npm:^7.25.2, @babel/traverse@npm:^7.8.3":
   version: 7.25.6
   resolution: "@babel/traverse@npm:7.25.6"
   dependencies:
@@ -10617,6 +10617,9 @@ __metadata:
     reselect: "npm:^4.1.8"
     styled-components: "npm:^5.3.11"
     stylelint: "npm:^14.16.1"
+    stylelint-config-recommended: "npm:^7.0.0"
+    stylelint-config-styled-components: "npm:^0.1.1"
+    stylelint-processor-styled-components: "npm:^1.10.0"
   languageName: unknown
   linkType: soft
 
@@ -11631,6 +11634,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "picocolors@npm:0.2.1"
+  checksum: 10c0/98a83c77912c80aea0fc518aec184768501bfceafa490714b0f43eda9c52e372b844ce0a591e822bbfe5df16dcf366be7cbdb9534d39cf54a80796340371ee17
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
@@ -11810,6 +11820,16 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
   checksum: 10c0/2a4cfa28e2f1bfd358313501f7771bd596e494487c7b735c492e2f8b1faf493d24fcb43e2e6ad825863fc65a77abb949ca8f228602ae46a022f02dc812c4ac8b
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^7.0.26":
+  version: 7.0.39
+  resolution: "postcss@npm:7.0.39"
+  dependencies:
+    picocolors: "npm:^0.2.1"
+    source-map: "npm:^0.6.1"
+  checksum: 10c0/fd27ee808c0d02407582cccfad4729033e2b439d56cd45534fb39aaad308bb35a290f3b7db5f2394980e8756f9381b458a625618550808c5ff01a125f51efc53
   languageName: node
   linkType: hard
 
@@ -14493,6 +14513,34 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: 10c0/eb6f388c7611468bb0ba48ecb0d0b269de4a0079ebeea56c5157552a414f00d575bfa1c37dd07eed5bff6547462b496f12b448dedeca386f778f1ccb2cf8b4ef
+  languageName: node
+  linkType: hard
+
+"stylelint-config-recommended@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "stylelint-config-recommended@npm:7.0.0"
+  peerDependencies:
+    stylelint: ^14.4.0
+  checksum: 10c0/11ec1d5721143fa35451b172ced61660f0f0204954273f59a06d5439075d48414f8257aa3cfc474116bcd56ca42c1485fc3bcf550ef39e5a72cbfdd4ac32acc6
+  languageName: node
+  linkType: hard
+
+"stylelint-config-styled-components@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "stylelint-config-styled-components@npm:0.1.1"
+  checksum: 10c0/0406e22c917bab691debdc50cd2f6f2d34b651b907365845639ea4b14532530bd3499abd90dded454fb8da2cb04ac231936a3fa89701d3444af09568e0aa4819
+  languageName: node
+  linkType: hard
+
+"stylelint-processor-styled-components@npm:^1.10.0":
+  version: 1.10.0
+  resolution: "stylelint-processor-styled-components@npm:1.10.0"
+  dependencies:
+    "@babel/parser": "npm:^7.8.3"
+    "@babel/traverse": "npm:^7.8.3"
+    micromatch: "npm:^4.0.2"
+    postcss: "npm:^7.0.26"
+  checksum: 10c0/a331f9de5d7c4a041084a82e49fe578d249189c8c82edb2df43712a330245c263a50dc05384a35ddb7c9c4b62ae100695ce974fad8981f1ad37d637a8c5eb568
   languageName: node
   linkType: hard
 
