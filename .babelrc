@@ -1,5 +1,4 @@
 {
-  "presets": ["next/babel"],
   "env": {
     "development": {
       "plugins": [["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]],
@@ -32,9 +31,6 @@
         ],
         "@babel/preset-react",
         "@babel/preset-typescript"
-      ],
-      "plugins": [
-        "dynamic-import-node"
       ]
     }
   },
