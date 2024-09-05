@@ -40,18 +40,15 @@ export default [
         GLOBAL: false,
         it: false,
         expect: false,
-        describe: false,
-      },
+        describe: false
+      }
     },
 
     rules: {
-      'prettier/prettier': [
-        'error',
-        prettierOptions,
-      ],
+      'prettier/prettier': ['error', prettierOptions],
 
       'import/no-webpack-loader-syntax': 0,
-      'curly': ['error', 'all'],
+      curly: ['error', 'all'],
       'react/display-name': 'off',
       'react/react-in-jsx-scope': 'off',
       'no-console': ['error', { allow: ['error'] }],
@@ -60,14 +57,14 @@ export default [
       'no-else-return': 'error',
       'max-params': ['error', 4],
       'no-shadow': 'error',
-      'complexity': ['error', 5],
+      complexity: ['error', 5],
       'no-empty': 'error',
       'import/order': [
         'error',
         {
-          groups: [['builtin', 'external', 'internal', 'parent', 'sibling', 'index']],
-        },
-      ],
+          groups: [['builtin', 'external', 'internal', 'parent', 'sibling', 'index']]
+        }
+      ]
     },
 
     settings: {
@@ -80,11 +77,11 @@ export default [
             ['@utils', './app/utils'],
             ['@images', './app/images'],
             ['@store', './app/store'],
-            ['@services', './app/services'],
+            ['@services', './app/services']
           ],
-          extensions: ['.ts', '.js', '.jsx', '.json'],
-        },
-      },
+          extensions: ['.ts', '.js', '.jsx', '.json']
+        }
+      }
     },
 
     ignores: [
@@ -111,7 +108,7 @@ export default [
       'playwright.config.js',
       'babel.config.js',
       'app/translations/*.js',
-      'app/**/stories/**/*.*',
-    ],
-  },
+      'app/**/stories/**/*.*'
+    ]
+  }
 ];

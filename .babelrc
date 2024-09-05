@@ -19,6 +19,23 @@
           }
         ]
       ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "@babel/preset-react",
+        "@babel/preset-typescript"
+      ],
+      "plugins": [
+        "dynamic-import-node"
+      ]
     }
   },
   "plugins": [["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]]

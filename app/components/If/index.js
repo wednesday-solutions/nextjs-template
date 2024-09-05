@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import Proptypes from 'prop-types';
 const If = (props) => (props.condition ? props.children : props.otherwise);
 If.propsTypes = {

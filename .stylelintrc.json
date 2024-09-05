@@ -1,8 +1,7 @@
 {
-  "processors": ["stylelint-processor-styled-components"],
+  "customSyntax": "postcss-styled-syntax",
   "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-styled-components"
+    "stylelint-config-recommended"
   ],
   "overrides": [
     {
@@ -14,7 +13,6 @@
     },
     {
       "files": ["**/*.{js,ts}"],
-      "customSyntax": "@stylelint/postcss-css-in-js",
       "rules": {
         "at-rule-no-unknown": null
       }
