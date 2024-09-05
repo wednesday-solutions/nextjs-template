@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:prod": "env-cmd -f environments/.env.production next build && next export",
-    "build:qa": "env-cmd -f environments/.env.qa next build && next export",
-    "build:dev": "env-cmd -f environments/.env.development next build && next export",
+    "build:prod": "env-cmd -f environments/.env.production next build",
+    "build:qa": "env-cmd -f environments/.env.qa next build",
+    "build:dev": "env-cmd -f environments/.env.development next build",
     "start:prod": "env-cmd -f environments/.env.production next start",
     "start:qa": "env-cmd -f environments/.env.qa next dev",
     "start:dev": "env-cmd -f environments/.env.development next dev",

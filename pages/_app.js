@@ -6,9 +6,8 @@ import globalStyle from '@app/global-styles';
 import { Global } from '@emotion/react';
 import { translationMessages, DEFAULT_LOCALE } from '@app/i18n';
 import { wrapper } from '@app/configureStore';
-import 'antd/dist/reset.css';
+import { App } from 'antd';
 import PropTypes from 'prop-types';
-
 const theme = {
   colors
 };
@@ -18,7 +17,9 @@ const MyApp = ({ Component, pageProps }) => {
     <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
       <ThemeProvider theme={theme}>
         <Global styles={globalStyle} />
-        <Component {...pageProps} />
+        <App>
+          <Component {...pageProps} />
+        </App>
       </ThemeProvider>
     </IntlProvider>
   );
