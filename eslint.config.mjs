@@ -21,11 +21,9 @@ const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.pre
 export default [
   ...compat.extends(
     'eslint:recommended',
-    // 'plugin:import/recommended',
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
-    // 'next',
     'prettier',
     'prettier-standard'
   ),
