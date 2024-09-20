@@ -7,14 +7,14 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
   color: grey;
 }
 
-.emotion-1 {
+.emotion-2 {
   white-space: pre-line;
 }
 
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered emotion-0"
+      class="ant-card ant-card-bordered emotion-0 emotion-1"
       color="grey"
       data-testid="error-state"
     >
@@ -35,7 +35,7 @@ exports[`<ErrorState /> should render and match the snapshot 1`] = `
         class="ant-card-body"
       >
         <span
-          class="emotion-1"
+          class="emotion-2"
           data-testid="text"
         >
           Search for a repository by entering it's name in the search box

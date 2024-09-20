@@ -1,7 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import Script from 'next/script';
 import { ServerStyleSheet } from 'styled-components';
-
+import PropTypes from 'prop-types';
 const MyDocument = ({ localeDataScript, locale, styles }) => {
   // Polyfill Intl API for older browsers
   const polyfill = `https://cdn.polyfill.io/v3/polyfill.min.js?features=Intl.~locale.${locale}`;
@@ -23,6 +23,12 @@ const MyDocument = ({ localeDataScript, locale, styles }) => {
       </body>
     </Html>
   );
+};
+
+MyDocument.propTypes = {
+  localeDataScript: PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired,
+  styles: PropTypes.node.isRequired
 };
 
 MyDocument.getInitialProps = async (ctx) => {

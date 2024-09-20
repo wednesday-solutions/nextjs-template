@@ -1,8 +1,17 @@
 import { getRepo } from '@app/services/info';
 import { getReccomendations } from '@services/root';
 import Info from '@app/containers/Info';
+import PropTypes from 'prop-types';
 
 const RepoInfo = ({ details }) => <Info details={details} />;
+
+RepoInfo.propTypes = {
+  details: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    stargazersCount: PropTypes.number.isRequired
+  })
+};
 
 export default RepoInfo;
 

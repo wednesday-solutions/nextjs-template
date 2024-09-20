@@ -1,6 +1,6 @@
 name: Next.js Template CI
 on:
-  pull_request_target:
+  pull_request:
     branches:
       - master
 
@@ -13,10 +13,10 @@ jobs:
         node-version: [20.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -28,7 +28,7 @@ jobs:
         run: yarn lint
 
       - name: Test and generate coverage report
-        uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
+        uses: artiomtr/jest-coverage-report-action@v2.3.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           threshold: 80

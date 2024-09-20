@@ -6,8 +6,7 @@ import globalStyle from '@app/global-styles';
 import { Global } from '@emotion/react';
 import { translationMessages, DEFAULT_LOCALE } from '@app/i18n';
 import { wrapper } from '@app/configureStore';
-import 'antd/dist/antd.css';
-
+import PropTypes from 'prop-types';
 const theme = {
   colors
 };
@@ -21,6 +20,11 @@ const MyApp = ({ Component, pageProps }) => {
       </ThemeProvider>
     </IntlProvider>
   );
+};
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired
 };
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {

@@ -15,36 +15,36 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
   padding: 20px;
 }
 
-.emotion-1 {
+.emotion-2 {
   white-space: pre-line;
   font-size: 1.75rem;
   font-weight: 500;
 }
 
-.emotion-2 {
+.emotion-5 {
   text-align: right;
 }
 
-.emotion-2.emotion-2 span {
+.emotion-5.emotion-5 span {
   color: #006ED6;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-2.emotion-2 span:hover {
+.emotion-5.emotion-5 span:hover {
   opacity: 0.8;
 }
 
-.emotion-3 {
+.emotion-6 {
   white-space: pre-line;
 }
 
-.emotion-4.emotion-4 {
+.emotion-8.emotion-8 {
   margin: 20px 0;
   max-width: 500;
 }
 
-.emotion-6.emotion-6 {
+.emotion-15.emotion-15 {
   margin: 20px 0;
   color: grey;
   color: grey;
@@ -57,28 +57,28 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
       style="height: 100vh; align-self: center;"
     >
       <div
-        class="ant-row"
+        class="ant-row emotion-1"
       >
         <span
-          class="emotion-1"
+          class="emotion-2"
           data-testid="text"
         >
           Recommended
         </span>
       </div>
       <div
-        class="ant-row ant-row-space-between"
+        class="ant-row ant-row-space-between emotion-1"
       >
         <div
-          class="ant-row"
+          class="ant-row emotion-1"
           data-testid="recommended"
         />
         <a
-          class="emotion-2"
+          class="emotion-5"
           href="https://www.iamawesome.com/"
         >
           <span
-            class="emotion-3"
+            class="emotion-6"
             data-testid="text"
           >
             You are awesome
@@ -86,11 +86,11 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
         </a>
       </div>
       <div
-        class="ant-divider ant-divider-horizontal"
+        class="ant-divider emotion-1 ant-divider-horizontal"
         role="separator"
       />
       <div
-        class="ant-card ant-card-bordered emotion-4"
+        class="ant-card ant-card-bordered emotion-8 emotion-1"
         maxwidth="500"
       >
         <div
@@ -110,19 +110,19 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
           class="ant-card-body"
         >
           <span
-            class="emotion-3"
+            class="emotion-6"
             data-testid="text"
           >
             Get details of repositories
           </span>
           <span
-            class="ant-input-group-wrapper ant-input-search"
+            class="ant-input-group-wrapper ant-input-group-wrapper-outlined emotion-1 ant-input-search"
           >
             <span
-              class="ant-input-wrapper ant-input-group"
+              class="ant-input-wrapper ant-input-group emotion-1"
             >
               <input
-                class="ant-input"
+                class="ant-input emotion-1 ant-input-outlined"
                 data-testid="search-bar"
                 type="text"
                 value=""
@@ -131,27 +131,31 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
                 class="ant-input-group-addon"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                  class="ant-btn emotion-1 ant-btn-default ant-btn-icon-only ant-input-search-button"
                   type="button"
                 >
                   <span
-                    aria-label="search"
-                    class="anticon anticon-search"
-                    role="img"
+                    class="ant-btn-icon"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="search"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="search"
+                      class="anticon anticon-search"
+                      role="img"
                     >
-                      <path
-                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="search"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                        />
+                      </svg>
+                    </span>
                   </span>
                 </button>
               </span>
@@ -160,7 +164,7 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
         </div>
       </div>
       <div
-        class="ant-card ant-card-bordered emotion-6"
+        class="ant-card ant-card-bordered emotion-15 emotion-1"
         color="grey"
         data-testid="error-state"
       >
@@ -181,7 +185,7 @@ exports[`<Repos /> container tests should render and match the snapshot 1`] = `
           class="ant-card-body"
         >
           <span
-            class="emotion-3"
+            class="emotion-6"
             data-testid="text"
           >
             Search for a repository by entering it's name in the search box

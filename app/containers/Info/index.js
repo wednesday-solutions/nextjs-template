@@ -35,10 +35,13 @@ import { selectInfoData, selectInfoLoading } from './selectors';
 export function Info({ details, params, loading, dispatchRequestInfo, fallBackDetails }) {
   const router = useRouter();
   const { query } = router;
-  const { name, description, stargazersCount } = { ...(details || {}), ...(fallBackDetails || {}) } || {};
+  const { name, description, stargazersCount } = { ...(details || {}), ...(fallBackDetails || {}) };
+
+  const shouldRequestInfo = () => isEmpty(details) && !!params?.name && !!query?.owner;
   useEffect(() => {
-    if (isEmpty(details) && !!params?.name && !!query?.owner) {
-      dispatchRequestInfo(params.name, query.owner);
+    const shouldReqInfo = shouldRequestInfo();
+    if (shouldReqInfo) {
+      dispatchRequestInfo(params?.name, query?.owner);
     }
   }, [params]);
 
