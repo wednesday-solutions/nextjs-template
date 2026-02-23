@@ -26,6 +26,13 @@ module.exports = withTM(
     assetPrefix: process.env.BASE_PATH || undefined,
     basePath: process.env.BASE_PATH || '',
     trailingSlash: true,
+    async rewrites() {
+      return [
+        { source: '/music/:path*', destination: 'http://localhost:9000/music/:path*' },
+        { source: '/login', destination: 'http://localhost:9000/login' },
+        { source: '/signup', destination: 'http://localhost:9000/signup' }
+      ];
+    },
     webpack(config) {
       config.resolve.alias = constructAlias(config);
       const originalEntry = config.entry;

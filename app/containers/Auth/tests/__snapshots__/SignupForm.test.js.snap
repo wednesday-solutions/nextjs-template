@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignupForm /> should render and match the snapshot 1`] = `
+.emotion-0 {
+  width: 100%;
+  max-width: 420px;
+  padding: 3rem;
+  background: var(--musica-bg);
+  border-radius: 16px;
+  border: 1px solid var(--musica-border);
+}
+
+.emotion-1 {
+  font-family: 'Syne',sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--musica-text);
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.95rem;
+  color: var(--musica-muted);
+  margin-bottom: 2rem;
+}
+
+.emotion-3 {
+  margin-bottom: 1.25rem;
+}
+
+.emotion-4 {
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.85rem;
+  color: var(--musica-label);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-5 {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--musica-inputBg);
+  border: 1.5px solid var(--musica-border);
+  border-radius: 10px;
+  color: var(--musica-text);
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.emotion-5::-webkit-input-placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-5::-moz-placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-5:-ms-input-placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-5::placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-5:focus {
+  border-color: var(--musica-accent);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.15);
+}
+
+.emotion-5:hover:not(:focus) {
+  border-color: #3d3d54;
+}
+
+.emotion-12 {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, var(--musica-accent), var(--musica-pink));
+  border: none;
+  border-radius: 10px;
+  color: var(--musica-text);
+  font-family: 'Syne',sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.emotion-12:hover {
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+.emotion-12:active {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-12:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.emotion-13 {
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.9rem;
+  color: var(--musica-muted);
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.emotion-14 {
+  color: var(--musica-accent);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.emotion-14:hover {
+  color: var(--musica-pink);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      <h2
+        class="emotion-1"
+      >
+        Join the beat
+      </h2>
+      <p
+        class="emotion-2"
+      >
+        Create your account and start listening
+      </p>
+      <form>
+        <div
+          class="emotion-3"
+        >
+          <label
+            class="emotion-4"
+            for="signup-name"
+          >
+            Full Name
+          </label>
+          <input
+            class="emotion-5"
+            data-testid="signup-name"
+            id="signup-name"
+            placeholder="Your name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <label
+            class="emotion-4"
+            for="signup-email"
+          >
+            Email
+          </label>
+          <input
+            class="emotion-5"
+            data-testid="signup-email"
+            id="signup-email"
+            placeholder="your@email.com"
+            required=""
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <label
+            class="emotion-4"
+            for="signup-password"
+          >
+            Password
+          </label>
+          <input
+            class="emotion-5"
+            data-testid="signup-password"
+            id="signup-password"
+            placeholder="Create a password"
+            required=""
+            type="password"
+            value=""
+          />
+        </div>
+        <button
+          class="emotion-12"
+          data-testid="signup-submit"
+          type="submit"
+        >
+          Create Account
+        </button>
+      </form>
+      <p
+        class="emotion-13"
+      >
+        Already have an account?
+         
+        <a
+          class="emotion-14"
+          href="/login"
+        >
+          Sign in
+        </a>
+      </p>
+    </div>
+  </div>
+</body>
+`;

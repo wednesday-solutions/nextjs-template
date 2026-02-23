@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { colors } from '@themes';
 
 const globalStyle = css`
   html,
@@ -12,28 +11,30 @@ const globalStyle = css`
 
   p,
   label {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Outfit', sans-serif;
     line-height: 1.5;
-    color: ${colors.text};
+    color: var(--musica-text);
   }
 
   body {
+    padding: 0;
+    margin: 0;
     p,
     label,
     span,
     div,
     h1 {
       line-height: 1.5;
-      font-family: Helvetica, Arial, sans-serif;
-      color: ${colors.text};
+      font-family: 'Outfit', sans-serif;
+      color: var(--musica-text);
     }
   }
   body.fontLoaded {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
 
   #app {
-    background-color: #fafafa;
+    background-color: var(--musica-bg);
     min-height: 100%;
     min-width: 100%;
   }
