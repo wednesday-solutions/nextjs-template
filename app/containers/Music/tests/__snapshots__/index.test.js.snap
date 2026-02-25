@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Music /> container should render and match the snapshot 1`] = `
+.emotion-0 {
+  min-height: 100vh;
+  background: var(--musica-bg);
+  color: var(--musica-text);
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.emotion-1 {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.emotion-3 {
+  font-family: 'Syne',sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--musica-text);
+  text-shadow: 0 0 30px rgba(255, 107, 53, 0.2);
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.25rem;
+  margin-left: 1.5rem;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.emotion-6 {
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.emotion-7 {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--musica-inputBg);
+  border: 1.5px solid var(--musica-border);
+  border-radius: 12px;
+  color: var(--musica-text);
+  font-family: 'Outfit',sans-serif;
+  font-size: 1rem;
+  outline: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.emotion-7::-webkit-input-placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-7::-moz-placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-7:-ms-input-placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-7::placeholder {
+  color: var(--musica-placeholder);
+}
+
+.emotion-7:focus {
+  border-color: var(--musica-accent);
+  box-shadow: 0 0 24px rgba(255, 107, 53, 0.12);
+}
+
+.emotion-7:hover:not(:focus) {
+  border-color: #3d3d54;
+}
+
+.emotion-7:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <header
+          class="emotion-2"
+        >
+          <h1
+            class="emotion-3"
+          >
+            MUSICA
+          </h1>
+          <nav
+            class="emotion-4"
+          >
+            <a
+              data-testid="nav-search"
+            >
+              Search
+            </a>
+            <a
+              data-testid="nav-favorites"
+            >
+              Favorites
+            </a>
+          </nav>
+          <div
+            class="emotion-5"
+          >
+            <div
+              data-testid="theme-toggle"
+            />
+            <div
+              data-testid="logout-button"
+            />
+          </div>
+        </header>
+        <div
+          class="emotion-6"
+        >
+          <input
+            class="emotion-7"
+            data-testid="music-search-input"
+            placeholder="Search songs, artists..."
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        data-testid="audio-player"
+      >
+        <button
+          data-testid="mock-next"
+        >
+          Next
+        </button>
+        <button
+          data-testid="mock-prev"
+        >
+          Prev
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;

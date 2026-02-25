@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SongList /> should render and match the snapshot 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--musica-cardBg);
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-animation: none 2s ease-in-out infinite;
+  animation: none 2s ease-in-out infinite;
+}
+
+.emotion-1:hover {
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  transform: translateX(4px);
+  background: var(--musica-surface);
+}
+
+.emotion-2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-4 {
+  font-family: 'Syne',sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--musica-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-5 {
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.8rem;
+  color: var(--musica-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-6 {
+  font-family: 'Outfit',sans-serif;
+  font-size: 0.75rem;
+  color: var(--musica-placeholder);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+<body>
+  <div>
+    <div
+      class="emotion-0"
+      data-testid="song-list"
+    >
+      <div
+        class="emotion-1"
+        data-testid="song-1"
+      >
+        <img
+          alt="Song A"
+          class="emotion-2"
+          src="a.jpg"
+        />
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-4"
+          >
+            Song A
+          </span>
+          <span
+            class="emotion-5"
+          >
+            Artist A
+          </span>
+          <span
+            class="emotion-6"
+          >
+            Album A
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-1"
+        data-testid="song-2"
+      >
+        <img
+          alt="Song B"
+          class="emotion-2"
+          src="b.jpg"
+        />
+        <div
+          class="emotion-3"
+        >
+          <span
+            class="emotion-4"
+          >
+            Song B
+          </span>
+          <span
+            class="emotion-5"
+          >
+            Artist B
+          </span>
+          <span
+            class="emotion-6"
+          >
+            Album B
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
